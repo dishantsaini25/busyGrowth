@@ -1,8 +1,9 @@
 "use client";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const CursorLayer = () => {
+  const [isMobile, setIsMobile] = useState(true);
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
@@ -11,16 +12,28 @@ export const CursorLayer = () => {
   const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const moveCursor = (e) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+    // Check if device is mobile/touch
+    const checkMobile = () => {
+      setIsMobile(
+        typeof window !== "undefined" && 
+        ("ontouchstart" in window || navigator.maxTouchPoints > 0)
+      );
     };
-    window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
-  }, [cursorX, cursorY]);
+    
+    checkMobile();
 
-  // Hide on touch devices
-  if (typeof window !== "undefined" && "ontouchstart" in window) return null;
+    if (!isMobile) {
+      const moveCursor = (e) => {
+        cursorX.set(e.clientX - 16);
+        cursorY.set(e.clientY - 16);
+      };
+      window.addEventListener("mousemove", moveCursor);
+      return () => window.removeEventListener("mousemove", moveCursor);
+    }
+  }, [cursorX, cursorY, isMobile]);
+
+  // Don't render anything on mobile/touch devices
+  if (isMobile) return null;
 
   return (
     <>
