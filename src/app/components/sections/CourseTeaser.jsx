@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 const milestoneCards = [
   {
@@ -32,71 +31,128 @@ const milestoneCards = [
     id: "M4",
     title: "Meta & Google Ads",
     subtitle: "Performance marketing",
-    color: "gold",
+    color: "orange",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
     topics: ["Meta Ads", "Google Search", "Pixel & CAPI", "Performance Max"],
+  },
+  {
+    id: "M5",
+    title: "Automation & AI",
+    subtitle: "n8n, email & WhatsApp flows",
+    color: "pink",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+    topics: ["n8n workflows", "AI agents", "Email automation", "WhatsApp API"],
   },
 ];
 
 export const CourseTeaser = () => (
-  <section className="py-16 lg:py-16">
-    <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      {/* Left Column - Course Info */}
+  <section className="py-16 lg:py-20">
+    <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+      
+      {/* Left Column - All Content */}
       <motion.div 
         initial={{ opacity: 0, x: -20 }} 
         whileInView={{ opacity: 1, x: 0 }} 
         viewport={{ once: true }}
-        className="flex flex-col justify-center"
+        className="flex flex-col"
       >
-        <span className="text-sm font-semibold uppercase tracking-widest text-cyan-accent">
-          20+ Week Mentorship Program
-        </span>
-        
-        <h2 className="mt-4 font-manrope text-4xl font-bold leading-tight text-text-dark md:text-5xl">
-          Learn the same playbooks we run on client accounts.
-        </h2>
-        
-        <p className="mt-6 text-lg leading-relaxed text-text-gray">
-          BusyGrowth Digital Marketing Course covers everything from SEO to paid ads, 
-          automation to AI. Live sessions, real projects, and lifetime access.
-        </p>
+        {/* Course Info */}
+        <div>
+          <span className="inline-block rounded-full bg-gradient-to-r from-cyan/10 to-cyan/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cyan">
+            20+ Week Mentorship Program
+          </span>
+          
+          <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-text-primary md:text-5xl">
+            Learn the same playbooks we run on client accounts.
+          </h2>
+          
+          <p className="mt-5 text-lg leading-relaxed text-text-secondary">
+            BusyGrowth Digital Marketing Course covers everything from SEO to paid ads, 
+            automation to AI. Live sessions, real projects, and lifetime access.
+          </p>
+        </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-4">
-          <div className="rounded-xl border border-cyan-accent/20 bg-cyan-accent/5 p-4">
-            <p className="text-2xl font-bold text-cyan-accent">47+</p>
-            <p className="text-xs text-text-light">Live Sessions</p>
+        {/* Stats Grid */}
+        <div className="mt-7 grid grid-cols-2 gap-3">
+          <div className="rounded-xl border border-cyan/20 bg-gradient-to-br from-cyan/5 to-transparent p-4">
+            <p className="font-display text-2xl font-bold text-cyan">47+</p>
+            <p className="text-xs text-text-tertiary">Live Sessions</p>
           </div>
-          <div className="rounded-xl border border-emerald-accent/20 bg-emerald-accent/5 p-4">
-            <p className="text-2xl font-bold text-emerald-accent">20+</p>
-            <p className="text-xs text-text-light">Real Projects</p>
+          <div className="rounded-xl border border-emerald/20 bg-gradient-to-br from-emerald/5 to-transparent p-4">
+            <p className="font-display text-2xl font-bold text-emerald">20+</p>
+            <p className="text-xs text-text-tertiary">Real Projects</p>
           </div>
-          <div className="rounded-xl border border-purple-accent/20 bg-purple-accent/5 p-4">
-            <p className="text-2xl font-bold text-purple-accent">5</p>
-            <p className="text-xs text-text-light">Milestones</p>
+          <div className="rounded-xl border border-purple/20 bg-gradient-to-br from-purple/5 to-transparent p-4">
+            <p className="font-display text-2xl font-bold text-purple">5</p>
+            <p className="text-xs text-text-tertiary">Milestones</p>
           </div>
-          <div className="rounded-xl border border-gold/20 bg-gold/5 p-4">
-            <p className="text-2xl font-bold text-gold">Lifetime</p>
-            <p className="text-xs text-text-light">Access</p>
+          <div className="rounded-xl border border-amber/20 bg-gradient-to-br from-amber/5 to-transparent p-4">
+            <p className="font-display text-2xl font-bold text-amber">Lifetime</p>
+            <p className="text-xs text-text-tertiary">Access</p>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-4">
+        {/* CTA Buttons */}
+        <div className="mt-8 flex flex-wrap gap-3">
           <Link 
             href="/course" 
-            className="rounded-full bg-gradient-to-r from-cyan-accent to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:scale-105 transition-all sm:px-8"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan to-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-glow-cyan transition-all hover:scale-105"
           >
-            See full curriculum →
+            See full curriculum
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
           <Link 
             href="/performance-course" 
-            className="rounded-full border-2 border-gold/30 bg-white px-6 py-3 text-sm font-medium text-text-gray shadow-sm hover:border-gold hover:text-gold transition-all sm:px-8"
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-orange/30 bg-white px-6 py-3 text-sm font-medium text-text-secondary shadow-sm transition-all hover:border-orange hover:text-orange"
           >
-            Performance Marketing (12 Weeks) →
+            Performance Marketing (12 Weeks)
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
+
+        {/* Next Batch CTA - Now on Left Side */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-8"
+        >
+          <div className="rounded-2xl border-2 border-dashed border-amber/40 bg-gradient-to-r from-amber/10 via-orange/5 to-pink/10 p-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-amber to-orange text-white">
+                <span className="text-lg">🎓</span>
+              </div>
+              <div>
+                <span className="inline-block rounded-full bg-amber/20 px-2.5 py-0.5 text-xs font-bold text-amber">
+                  NEXT BATCH
+                </span>
+                <h4 className="mt-1 font-display text-lg font-bold text-text-primary">
+                  Limited Seats Available
+                </h4>
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-text-secondary">
+              Join 500+ students who transformed their careers. Next batch starts soon!
+            </p>
+            <Link 
+              href="/contact" 
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber to-orange px-6 py-3 text-sm font-semibold text-white shadow-glow-amber transition-all hover:scale-[1.02] sm:w-auto"
+            >
+              Reserve your seat
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </motion.div>
       </motion.div>
 
-      {/* Right Column - Milestone Cards with Images */}
+      {/* Right Column - Milestone Cards Grid */}
       <motion.div 
         initial={{ opacity: 0, x: 20 }} 
         whileInView={{ opacity: 1, x: 0 }} 
@@ -109,17 +165,18 @@ export const CourseTeaser = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            transition={{ delay: index * 0.08 }}
             whileHover={{ y: -5 }}
-            className={`group relative overflow-hidden rounded-2xl border bg-white shadow-card-soft transition-all hover:shadow-card-hover ${
-              card.color === 'cyan' ? 'border-cyan-accent/30' :
-              card.color === 'emerald' ? 'border-emerald-accent/30' :
-              card.color === 'purple' ? 'border-purple-accent/30' :
-              'border-gold/30'
+            className={`group relative overflow-hidden rounded-2xl border bg-white shadow-md transition-all hover:shadow-lg ${
+              card.color === 'cyan' ? 'border-cyan/30' :
+              card.color === 'emerald' ? 'border-emerald/30' :
+              card.color === 'purple' ? 'border-purple/30' :
+              card.color === 'orange' ? 'border-orange/30' :
+              'border-pink/30'
             }`}
           >
             {/* Image Section */}
-            <div className="relative h-32 w-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+            <div className="relative h-32 w-full overflow-hidden">
               <img 
                 src={card.image} 
                 alt={card.title}
@@ -127,17 +184,19 @@ export const CourseTeaser = () => (
               />
               {/* Overlay Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-t ${
-                card.color === 'cyan' ? 'from-cyan-accent/80 to-transparent' :
-                card.color === 'emerald' ? 'from-emerald-accent/80 to-transparent' :
-                card.color === 'purple' ? 'from-purple-accent/80 to-transparent' :
-                'from-gold/80 to-transparent'
+                card.color === 'cyan' ? 'from-cyan/80 to-transparent' :
+                card.color === 'emerald' ? 'from-emerald/80 to-transparent' :
+                card.color === 'purple' ? 'from-purple/80 to-transparent' :
+                card.color === 'orange' ? 'from-orange/80 to-transparent' :
+                'from-pink/80 to-transparent'
               }`} />
               {/* Badge */}
               <span className={`absolute bottom-2 left-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold backdrop-blur-sm ${
-                card.color === 'cyan' ? 'text-cyan-accent' :
-                card.color === 'emerald' ? 'text-emerald-accent' :
-                card.color === 'purple' ? 'text-purple-accent' :
-                'text-gold'
+                card.color === 'cyan' ? 'text-cyan' :
+                card.color === 'emerald' ? 'text-emerald' :
+                card.color === 'purple' ? 'text-purple' :
+                card.color === 'orange' ? 'text-orange' :
+                'text-pink'
               }`}>
                 {card.id}
               </span>
@@ -145,18 +204,18 @@ export const CourseTeaser = () => (
 
             {/* Content Section */}
             <div className="p-4">
-              <h3 className="font-semibold text-text-dark">{card.title}</h3>
-              <p className="text-xs text-text-light">{card.subtitle}</p>
+              <h3 className="font-display text-base font-semibold text-text-primary">{card.title}</h3>
+              <p className="text-xs text-text-tertiary">{card.subtitle}</p>
               
               {/* Topics */}
               <div className="mt-3 flex flex-wrap gap-1">
                 {card.topics.slice(0, 2).map((topic, i) => (
-                  <span key={i} className="rounded-full bg-bg-gray px-2 py-0.5 text-[10px] text-text-light">
+                  <span key={i} className="rounded-full bg-bg-tertiary px-2 py-0.5 text-[10px] text-text-tertiary">
                     {topic}
                   </span>
                 ))}
                 {card.topics.length > 2 && (
-                  <span className="rounded-full bg-bg-gray px-2 py-0.5 text-[10px] text-text-light">
+                  <span className="rounded-full bg-bg-tertiary px-2 py-0.5 text-[10px] text-text-tertiary">
                     +{card.topics.length - 2}
                   </span>
                 )}
@@ -164,60 +223,6 @@ export const CourseTeaser = () => (
             </div>
           </motion.div>
         ))}
-
-        {/* M5 Automation Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          whileHover={{ y: -5 }}
-          className="group relative overflow-hidden rounded-2xl border border-pink-accent/30 bg-white shadow-card-soft transition-all hover:shadow-card-hover"
-        >
-          <div className="relative h-32 w-full overflow-hidden bg-gradient-to-br from-pink-100 to-rose-100">
-            <img 
-              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop" 
-              alt="Automation & AI"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-pink-accent/80 to-transparent" />
-            <span className="absolute bottom-2 left-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-pink-accent backdrop-blur-sm">
-              M5
-            </span>
-          </div>
-          <div className="p-4">
-            <h3 className="font-semibold text-text-dark">Automation & AI</h3>
-            <p className="text-xs text-text-light">n8n, email & WhatsApp flows</p>
-            <div className="mt-3 flex flex-wrap gap-1">
-              <span className="rounded-full bg-bg-gray px-2 py-0.5 text-[10px] text-text-light">n8n workflows</span>
-              <span className="rounded-full bg-bg-gray px-2 py-0.5 text-[10px] text-text-light">AI agents</span>
-              <span className="rounded-full bg-bg-gray px-2 py-0.5 text-[10px] text-text-light">+2</span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Next Batch CTA Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="col-span-1 sm:col-span-2"
-        >
-          <div className="rounded-2xl border-2 border-dashed border-gold/40 bg-gradient-to-r from-gold/10 via-amber-50/50 to-gold/10 p-6 text-center">
-            <span className="inline-block rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-gold">
-              🎓 NEXT BATCH
-            </span>
-            <h4 className="mt-3 text-xl font-bold text-text-dark">Limited Seats Available</h4>
-            <p className="mt-1 text-sm text-text-gray">Join 500+ students who transformed their careers</p>
-            <Link 
-              href="/contact" 
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-dim px-6 py-2.5 text-sm font-bold text-white shadow-glow-gold hover:scale-105 transition-all"
-            >
-              Reserve your seat →
-            </Link>
-          </div>
-        </motion.div>
       </motion.div>
     </div>
   </section>
