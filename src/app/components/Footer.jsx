@@ -7,21 +7,21 @@ export const Footer = () => {
   
   return (
     <footer className="relative mt-24 border-t border-border-light bg-white">
-      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <div className="mx-auto max-w-7xl px-6 py-12 md:px-8 md:py-16">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           
-          {/* Column 1: Brand */}
+          {/* Column 1: Brand - Full width on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-4"
+            className="space-y-3 sm:col-span-2 lg:col-span-1"
           >
             <Link href="/" className="inline-block">
-              <span className="bg-linear-to-r from-gold via-gold/90 to-gold-dim bg-clip-text text-2xl font-bold text-transparent">
+              <span className="bg-gradient-to-r from-gold via-gold/90 to-gold-dim bg-clip-text text-2xl font-bold text-transparent">
                 BusyGrowth
               </span>
               <span className="ml-1 text-xs font-medium uppercase text-text-light">Studio</span>
@@ -30,107 +30,84 @@ export const Footer = () => {
               Jaipur-based performance studio for founders & creators. 
               We build digital experiences that print leads on autopilot.
             </p>
+            
+            {/* Mobile-only contact (shows only on small screens) */}
+            <div className="flex gap-4 pt-2 sm:hidden">
+              <a href="mailto:hello@busygrowth.studio" className="text-sm text-cyan-accent">
+                📧 hello@busygrowth.studio
+              </a>
+              <a href="https://wa.me/919352757834" className="text-sm text-emerald-accent">
+                📱 WhatsApp
+              </a>
+            </div>
           </motion.div>
 
-          {/* Column 2: Quick Links - FIXED PATHS */}
+          {/* Column 2: Quick Links + Services (Side-by-Side on Mobile) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4"
+            className="grid grid-cols-2 gap-6 sm:col-span-2 lg:col-span-1"
           >
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-dark">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/" className="text-sm text-text-gray transition hover:text-gold">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-sm text-text-gray transition hover:text-gold">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/#brands" className="text-sm text-text-gray transition hover:text-gold">
-                  Brands
-                </Link>
-              </li>
-              <li>
-                <Link href="/course" className="text-sm text-text-gray transition hover:text-gold">
-                  Full DM Course
-                </Link>
-              </li>
-              <li>
-                <Link href="/performance-course" className="text-sm text-text-gray transition hover:text-gold">
-                  Performance Course
-                </Link>
-              </li>
-              <li>
-                <Link href="/#faq" className="text-sm text-text-gray transition hover:text-gold">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm text-text-gray transition hover:text-gold">
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            {/* Quick Links */}
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-dark">
+                Quick Links
+              </h3>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-sm text-text-gray transition hover:text-gold">Home</Link></li>
+                <li><Link href="/services" className="text-sm text-text-gray transition hover:text-gold">Services</Link></li>
+                <li><Link href="/#brands" className="text-sm text-text-gray transition hover:text-gold">Brands</Link></li>
+                <li><Link href="/course" className="text-sm text-text-gray transition hover:text-gold">Full DM Course</Link></li>
+              </ul>
+            </div>
+            
+            {/* More Links */}
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-dark">
+                &nbsp;
+              </h3>
+              <ul className="space-y-2">
+                <li><Link href="/performance-course" className="text-sm text-text-gray transition hover:text-gold">Performance Course</Link></li>
+                <li><Link href="/#faq" className="text-sm text-text-gray transition hover:text-gold">FAQ</Link></li>
+                <li><Link href="/contact" className="text-sm text-text-gray transition hover:text-gold">Contact</Link></li>
+              </ul>
+            </div>
           </motion.div>
 
-          {/* Column 3: Services */}
+          {/* Column 3: Services (Hidden on mobile, shown in Column 2) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
+            className="hidden space-y-3 lg:block"
           >
             <h3 className="text-sm font-semibold uppercase tracking-wider text-text-dark">
               Services
             </h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/services#social-media" className="text-sm text-text-gray transition hover:text-gold">
-                  Social Media
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#meta-ads" className="text-sm text-text-gray transition hover:text-gold">
-                  Meta Ads
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#ai-automation" className="text-sm text-text-gray transition hover:text-gold">
-                  AI & Automation
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#video-editing" className="text-sm text-text-gray transition hover:text-gold">
-                  Video Editing
-                </Link>
-              </li>
+            <ul className="space-y-2">
+              <li><Link href="/services#social-media" className="text-sm text-text-gray transition hover:text-gold">Social Media</Link></li>
+              <li><Link href="/services#meta-ads" className="text-sm text-text-gray transition hover:text-gold">Meta Ads</Link></li>
+              <li><Link href="/services#ai-automation" className="text-sm text-text-gray transition hover:text-gold">AI & Automation</Link></li>
+              <li><Link href="/services#video-editing" className="text-sm text-text-gray transition hover:text-gold">Video Editing</Link></li>
             </ul>
           </motion.div>
 
-          {/* Column 4: Contact */}
+          {/* Column 4: Contact (Desktop only) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="space-y-4"
+            className="hidden space-y-3 lg:block"
           >
             <h3 className="text-sm font-semibold uppercase tracking-wider text-text-dark">
               Let's Connect
             </h3>
             
             <div className="space-y-3">
-              {/* WhatsApp */}
               <a
                 href="https://wa.me/919352757834"
                 target="_blank"
@@ -150,7 +127,6 @@ export const Footer = () => {
                 </div>
               </a>
 
-              {/* Email */}
               <a
                 href="mailto:hello@busygrowth.studio"
                 className="group flex items-center gap-3 rounded-xl border border-cyan-accent/20 bg-cyan-accent/5 p-3 transition-all hover:bg-cyan-accent/10"
@@ -168,7 +144,6 @@ export const Footer = () => {
                 </div>
               </a>
 
-              {/* Location */}
               <div className="flex items-start gap-3 rounded-xl border border-border-light bg-white/50 p-3">
                 <div className="rounded-full bg-gold/20 p-2 text-gold">
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,53 +161,53 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Stats Strip */}
+        {/* Stats Strip - Compact on Mobile */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="my-12 grid grid-cols-2 gap-4 rounded-2xl border border-border-light bg-bg-gray p-6 md:grid-cols-4"
+          className="my-8 grid grid-cols-4 gap-2 rounded-xl border border-border-light bg-bg-gray p-4 md:my-12 md:gap-4 md:p-6"
         >
           <div className="text-center">
-            <p className="font-manrope text-2xl font-bold text-gold">80+</p>
-            <p className="text-xs uppercase tracking-wider text-text-light">Campaigns</p>
+            <p className="text-xl font-bold text-gold md:text-2xl">80+</p>
+            <p className="text-[10px] uppercase tracking-wider text-text-light md:text-xs">Campaigns</p>
           </div>
           <div className="text-center border-l border-border-light">
-            <p className="font-manrope text-2xl font-bold text-cyan-accent">₹1Cr+</p>
-            <p className="text-xs uppercase tracking-wider text-text-light">Ad Spend</p>
+            <p className="text-xl font-bold text-cyan-accent md:text-2xl">₹1Cr+</p>
+            <p className="text-[10px] uppercase tracking-wider text-text-light md:text-xs">Ad Spend</p>
           </div>
           <div className="text-center border-l border-border-light">
-            <p className="font-manrope text-2xl font-bold text-emerald-accent">3.2x</p>
-            <p className="text-xs uppercase tracking-wider text-text-light">Avg ROAS</p>
+            <p className="text-xl font-bold text-emerald-accent md:text-2xl">3.2x</p>
+            <p className="text-[10px] uppercase tracking-wider text-text-light md:text-xs">Avg ROAS</p>
           </div>
           <div className="text-center border-l border-border-light">
-            <p className="font-manrope text-2xl font-bold text-purple-accent">24/7</p>
-            <p className="text-xs uppercase tracking-wider text-text-light">Automation</p>
+            <p className="text-xl font-bold text-purple-accent md:text-2xl">24/7</p>
+            <p className="text-[10px] uppercase tracking-wider text-text-light md:text-xs">Automation</p>
           </div>
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border-light pt-8 text-center md:flex-row md:text-left">
-          <p className="text-sm text-text-light">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-border-light pt-6 text-center md:flex-row md:text-left">
+          <p className="text-xs text-text-light md:text-sm">
             © {currentYear} BusyGrowth Studio. All rights reserved.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:gap-6 md:text-sm">
             <Link href="/privacy" className="text-text-light transition hover:text-gold">
-              Privacy Policy
+              Privacy
             </Link>
             <span className="text-border-light">|</span>
             <Link href="/terms" className="text-text-light transition hover:text-gold">
-              Terms of Service
+              Terms
             </Link>
             <span className="text-border-light">|</span>
             <Link href="/refund" className="text-text-light transition hover:text-gold">
-              Refund Policy
+              Refund
             </Link>
           </div>
 
-          <p className="text-sm text-text-light">
+          <p className="text-xs text-text-light md:text-sm">
             Made with <span className="text-red-400">❤️</span> in Jaipur
           </p>
         </div>
