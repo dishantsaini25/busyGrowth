@@ -1,16 +1,27 @@
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Reem_Kufi } from "next/font/google";
 import "./globals.css";
 import { CursorLayer } from "./components/ux/CursorLayer";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
+
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: "swap"
+});
+
+const reemKufi = Reem_Kufi({
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: "--font-reem-kufi",
+  display: "swap"
+});
 
 export const metadata = {
-  title: "BusyGrowth Studio | Jaipur-Based Performance Agency",
-  description: "We build digital experiences that print leads on autopilot using reels, ads & automation.",
+  title: "BusyGrowth Studio | Performance Marketing Agency",
+  description: "We help founders scale with Meta Ads, Google Ads & automation. Data-driven performance marketing.",
   icons: { icon: '/icon.png' },
   openGraph: {
     title: "BusyGrowth Studio | Scale Your Brand",
@@ -31,35 +42,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
-      <body className="relative min-h-screen bg-bg-light font-sans text-text-dark antialiased">
-        {/* Base Gradient Background */}
-        <div className="fixed inset-0 z-0 bg-linear-to-br from-slate-50 via-white to-amber-50/30" />
+    <html lang="en" className={`${inter.variable} ${reemKufi.variable}`}>
+      <body className="relative min-h-screen bg-bg-primary font-sans text-text-primary antialiased">
+        {/* Background Layers */}
+        <div className="fixed inset-0 z-0 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50" />
+        <div className="fixed inset-0 z-0 bg-grid-pattern opacity-[0.12]" />
+        <div className="fixed inset-0 z-0 bg-dot-pattern opacity-[0.06]" />
         
-        {/* Grid Pattern Overlay */}
-        <div className="fixed inset-0 z-0 bg-grid-pattern" />
-        
-        {/* DM-Related Background Images */}
-        <div 
-          className="fixed -right-40 top-20 z-0 h-150 w-150 rounded-full bg-cover bg-center opacity-8 blur-3xl"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800')" }}
-        />
-        <div 
-          className="fixed -left-40 bottom-20 z-0 h-150 w-150 rounded-full bg-cover bg-center opacity-6 blur-3xl"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800')" }}
-        />
-        <div 
-          className="fixed left-1/4 top-1/3 z-0 h-150 w-150 rounded-full bg-cover bg-center opacity-4 blur-3xl"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800')" }}
-        />
-        <div 
-          className="fixed right-1/4 bottom-1/4 z-0 h-150 w-150 rounded-full bg-cover bg-center opacity-5 blur-3xl"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800')" }}
-        />
+        {/* Colorful Floating Orbs */}
+        <div className="fixed -left-40 top-20 z-0 h-[600px] w-[600px] rounded-full bg-gradient-to-r from-amber-300/20 to-orange-300/20 blur-3xl" />
+        <div className="fixed -right-40 bottom-20 z-0 h-[600px] w-[600px] rounded-full bg-gradient-to-r from-rose-300/20 to-pink-300/20 blur-3xl" />
+        <div className="fixed left-1/4 top-1/3 z-0 h-[400px] w-[400px] rounded-full bg-gradient-to-r from-cyan-300/15 to-teal-300/15 blur-3xl" />
+        <div className="fixed right-1/4 top-2/3 z-0 h-[350px] w-[350px] rounded-full bg-gradient-to-r from-purple-300/15 to-indigo-300/15 blur-3xl" />
         
         <CursorLayer />
         <Header />
-        <main className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
+        <main className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {children}
         </main>
         <Footer />

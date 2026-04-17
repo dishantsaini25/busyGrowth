@@ -39,7 +39,7 @@ const milestoneCards = [
 ];
 
 export const CourseTeaser = () => (
-  <section className="py-16 lg:py-24">
+  <section className="py-16 lg:py-16">
     <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
       {/* Left Column - Course Info */}
       <motion.div 

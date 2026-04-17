@@ -23,7 +23,7 @@ export default function ContactPage() {
   };
 
   if (status.success) return (
-    <div className="min-h-screen pt-32 pb-20">
+    <div className="min-h-screen pt-32 pb-10">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mx-auto max-w-2xl text-center">
         <div className="rounded-3xl border border-gold/30 bg-white p-12 shadow-card-soft">
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gold/10 text-gold text-3xl">✓</div>
