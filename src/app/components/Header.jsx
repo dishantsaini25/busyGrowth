@@ -20,6 +20,7 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
+  const [activeMobileCategory, setActiveMobileCategory] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -31,6 +32,7 @@ export const Header = () => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
     setCoursesOpen(false);
+    setActiveMobileCategory(null);
   };
 
   useEffect(() => {
@@ -52,7 +54,7 @@ export const Header = () => {
             <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
               BusyGrowth
             </span>
-            <span className="ml-1 text-[10px] bg-linear-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xs">Studio</span>
+            <span className="ml-1 text-[10px] font-medium text-text-light sm:text-xs">Studio</span>
           </Link>
 
           <nav className="hidden items-center gap-4 text-sm font-medium text-text-gray lg:flex lg:gap-6">
@@ -118,49 +120,128 @@ export const Header = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - COMPACT VERSION */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-40 overflow-y-auto bg-white/98 backdrop-blur-xl lg:hidden">
             <div className="flex min-h-full flex-col px-6 py-16">
               <motion.nav initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-1">
-                <details className="group">
-                  <summary className="list-none py-3 text-xl font-medium text-text-dark marker:hidden">Services</summary>
-                  <div className="ml-4 mt-2 space-y-4">
-                    {servicesMenu.map((cat) => (
-                      <div key={cat.category}>
-                        <p className="font-semibold text-text-dark">{cat.category}</p>
-                        {cat.items.map((item) => (
-                          <Link key={item} href={`/services#${item.toLowerCase().replace(/\s+/g, '-')}`} onClick={handleLinkClick} className="block py-1 text-base text-text-gray">{item}</Link>
-                        ))}
-                      </div>
-                    ))}
-                    <Link href="/services" onClick={handleLinkClick} className="block pt-2 text-base font-medium text-gold">View all services →</Link>
-                  </div>
-                </details>
                 
-                <details className="group">
-                  <summary className="list-none py-3 text-xl font-medium text-text-dark marker:hidden">Courses</summary>
-                  <div className="ml-4 mt-2 space-y-2">
-                    {courseLinks.map((c) => (
-                      <Link key={c.href} href={c.href} onClick={handleLinkClick} className="block py-1 text-base text-text-gray">{c.label}</Link>
-                    ))}
-                  </div>
-                </details>
-                
-                <Link href="/contact" onClick={handleLinkClick} className="block py-3 text-xl font-medium text-text-dark">Contact</Link>
-                
-                <div className="mt-6">
-                  <Link href="/contact" onClick={handleLinkClick} className="block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-3 text-center text-base font-semibold text-white shadow-glow-gold">Book strategy call</Link>
+                {/* Services - Compact Accordion */}
+                <div className="border-b border-border-light py-2">
+                  <button 
+                    onClick={() => setActiveMobileCategory(activeMobileCategory === 'services' ? null : 'services')}
+                    className="flex w-full items-center justify-between py-3 text-xl font-medium text-text-dark"
+                  >
+                    Services
+                    <svg className={`h-5 w-5 text-gold transition-transform ${activeMobileCategory === 'services' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Compact Category Pills */}
+                  <AnimatePresence>
+                    {activeMobileCategory === 'services' && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex flex-wrap gap-2 pb-4 pt-2">
+                          {servicesMenu.map((cat) => (
+                            <Link
+                              key={cat.category}
+                              href={cat.href}
+                              onClick={handleLinkClick}
+                              className="rounded-full border border-border-light bg-white px-4 py-2 text-sm font-medium text-text-gray shadow-sm transition-all hover:border-gold/40 hover:text-gold"
+                            >
+                              {cat.category}
+                            </Link>
+                          ))}
+                        </div>
+                        <Link 
+                          href="/services" 
+                          onClick={handleLinkClick} 
+                          className="inline-block pb-3 text-sm font-medium text-gold hover:underline"
+                        >
+                          View all services →
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
                 
-                <div className="mt-6 space-y-2 text-center">
-                  <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-gold">📧 hello@busygrowth.studio</a>
-                  <a href="https://wa.me/919352757834" className="block text-sm font-medium text-emerald-accent">📱 +91 93527 57834</a>
+                {/* Courses - Compact Accordion */}
+                <div className="border-b border-border-light py-2">
+                  <button 
+                    onClick={() => setActiveMobileCategory(activeMobileCategory === 'courses' ? null : 'courses')}
+                    className="flex w-full items-center justify-between py-3 text-xl font-medium text-text-dark"
+                  >
+                    Courses
+                    <svg className={`h-5 w-5 text-gold transition-transform ${activeMobileCategory === 'courses' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {activeMobileCategory === 'courses' && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden pb-4"
+                      >
+                        {courseLinks.map((c) => (
+                          <Link 
+                            key={c.href} 
+                            href={c.href} 
+                            onClick={handleLinkClick} 
+                            className="block py-2 text-base text-text-gray transition-colors hover:text-gold"
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                
+                {/* Contact Link */}
+                <Link 
+                  href="/contact" 
+                  onClick={handleLinkClick} 
+                  className="block py-4 text-xl font-medium text-text-dark"
+                >
+                  Contact
+                </Link>
+                
+                {/* CTA Button */}
+                <div className="mt-6">
+                  <Link 
+                    href="/contact" 
+                    onClick={handleLinkClick} 
+                    className="block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-3 text-center text-base font-semibold text-white shadow-glow-gold"
+                  >
+                    Book strategy call
+                  </Link>
+                </div>
+                
+                {/* Contact Info - Compact */}
+                <div className="mt-6 space-y-1 text-center">
+                  <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-gold">
+                    📧 hello@busygrowth.studio
+                  </a>
+                  <a href="https://wa.me/919352757834" className="block text-sm font-medium text-emerald-accent">
+                    📱 +91 93527 57834
+                  </a>
                 </div>
               </motion.nav>
             </div>
-            <button onClick={() => setMobileMenuOpen(false)} className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-gold/40 bg-white px-6 py-2 text-sm font-medium text-text-dark shadow-md">Close ✕</button>
+            
+            <button onClick={() => setMobileMenuOpen(false)} className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-gold/40 bg-white px-6 py-2 text-sm font-medium text-text-dark shadow-md">
+              Close ✕
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
