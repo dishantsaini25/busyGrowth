@@ -7,19 +7,19 @@ const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, tra
 const cardVariant = { hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } } };
 
 export const Hero = () => (
-  <section className="relative flex min-h-screen flex-col items-center justify-center gap-8 overflow-hidden pt-16 lg:flex-row lg:gap-16 lg:pt-24">
+  <section className="relative flex min-h-screen flex-col items-center justify-center gap-6 overflow-hidden pt-12 lg:flex-row lg:gap-16 lg:pt-24">
     {/* Left Column */}
     <motion.div className="flex max-w-2xl flex-col lg:w-1/2" variants={fadeUp} initial="hidden" animate="visible">
-      <Chip variant="gold" className="mb-4 bg-white/80 backdrop-blur-sm sm:mb-6">⚡ Jaipur-based performance studio</Chip>
+      <Chip variant="gold" className="mb-3 bg-white/80 backdrop-blur-sm sm:mb-6">⚡ Jaipur-based performance studio</Chip>
       
-      <h1 className="mb-4 font-manrope text-3xl font-bold leading-tight text-text-dark sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl">
+      <h1 className="mb-3 font-manrope text-3xl font-bold leading-tight text-text-dark sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl">
         We build digital experiences that{" "}
         <span className="text-gradient-gold">print leads on autopilot</span>
         <br />
         <span className="text-cyan-accent">using reels, ads & automation.</span>
       </h1>
       
-      <p className="mb-6 text-base text-text-gray sm:mb-8 sm:text-lg">
+      <p className="mb-5 text-base text-text-gray sm:mb-8 sm:text-lg">
         A small, hands-on team that actually runs the ads, edits the reels, and builds the systems. 
         No agency fluff — just real growth for founders and creators.
       </p>
@@ -33,7 +33,7 @@ export const Hero = () => (
         </Link>
       </div>
       
-      <div className="mt-6 flex flex-wrap gap-2 sm:mt-10 sm:gap-3">
+      <div className="mt-5 flex flex-wrap gap-2 sm:mt-10 sm:gap-3">
         <Chip variant="cyan">🎬 Reels & short-form</Chip>
         <Chip variant="purple">📊 Meta & Google Ads</Chip>
         <Chip variant="pink">🤖 WhatsApp + email flows</Chip>
@@ -83,7 +83,7 @@ export const Hero = () => (
 
     {/* Mobile Stats - Simple Version */}
     <motion.div 
-      className="relative mt-4 block lg:hidden"
+      className="relative mt-2 block lg:hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
