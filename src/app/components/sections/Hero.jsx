@@ -1,33 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Chip } from "./common";
+import { Chip, Metric } from "./common";
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
-
-// Simple Metric component for desktop only
-const Metric = ({ label, value, tone = "neutral" }) => {
-  const t = { 
-    green: "text-emerald-accent", 
-    gold: "text-gold", 
-    cyan: "text-cyan-accent", 
-    purple: "text-purple-accent",
-    pink: "text-pink-accent",
-    neutral: "text-text-dark"
-  };
-  return (
-    <div className="flex flex-col">
-      <span className="text-[10px] uppercase tracking-wider text-text-light">{label}</span>
-      <span className={`text-base font-bold ${t[tone]}`}>{value}</span>
-    </div>
-  );
-};
+const cardVariant = { hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } } };
 
 export const Hero = () => (
-  <section className="relative flex flex-col items-center justify-start px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
+  <section className="relative flex min-h-screen flex-col items-center justify-start px-4 pt-20 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
     
-    {/* Left Column - Always visible */}
-    <motion.div className="w-full max-w-2xl lg:w-1/2" variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="w-full max-w-2xl pb-8 lg:w-1/2 lg:pb-0" variants={fadeUp} initial="hidden" animate="visible">
       <Chip variant="gold" className="mb-3 inline-block bg-white/80 backdrop-blur-sm text-xs sm:mb-4 sm:text-sm">
         ⚡ Jaipur-based performance studio
       </Chip>
@@ -59,84 +41,38 @@ export const Hero = () => (
         <Chip variant="pink" className="text-[10px] sm:text-xs">🤖 WhatsApp + email flows</Chip>
       </div>
 
-      {/* Mobile Stats - Only visible on mobile */}
-      <div className="mt-6 block lg:hidden">
+      <motion.div className="relative mt-6 block lg:hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
         <div className="flex flex-wrap items-center justify-center gap-4 rounded-xl border border-gold/20 bg-white/80 p-4 backdrop-blur-sm">
-          <div className="text-center">
-            <p className="text-xl font-bold text-gold">80+</p>
-            <p className="text-[10px] text-text-light">Campaigns</p>
-          </div>
+          <div className="text-center"><p className="text-xl font-bold text-gold">15+</p><p className="text-[10px] text-text-light">Campaigns</p></div>
           <div className="h-6 w-px bg-border-light" />
-          <div className="text-center">
-            <p className="text-xl font-bold text-cyan-accent">3.8x</p>
-            <p className="text-[10px] text-text-light">Avg ROAS</p>
-          </div>
+          <div className="text-center"><p className="text-xl font-bold text-cyan-accent">2.4x</p><p className="text-[10px] text-text-light">Avg ROAS</p></div>
           <div className="h-6 w-px bg-border-light" />
-          <div className="text-center">
-            <p className="text-xl font-bold text-emerald-accent">12.4k</p>
-            <p className="text-[10px] text-text-light">Leads</p>
-          </div>
+          <div className="text-center"><p className="text-xl font-bold text-emerald-accent">6+</p><p className="text-[10px] text-text-light">Clients</p></div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
 
-    {/* Right Column - DESKTOP ONLY (hidden on mobile) */}
-    <div className="mt-8 pt-20 hidden w-full max-w-md lg:mt-0 lg:block lg:w-1/2 xl:max-w-lg">
-      <div className="grid gap-4 xl:gap-6">
-        
-        {/* Campaign Snapshot */}
+    <div className="mt-8 hidden w-full max-w-md lg:mt-0 lg:block lg:w-1/2 xl:max-w-lg">
+      <div className="grid gap-4 xl:gap-6 pt-20">
         <motion.div whileHover={{ y: -5 }} className="w-fit self-end rounded-2xl border border-cyan-accent/20 bg-white/90 p-4 shadow-card-soft">
-          <div className="flex items-center gap-4">
-            <div>
-              <p className="text-xs font-medium text-cyan-accent">📈 Campaign snapshot</p>
-              <p className="text-sm font-medium text-text-dark">D2C Beauty</p>
-            </div>
-            <div className="h-8 w-px bg-border-light" />
-            <div>
-              <p className="text-xs text-text-light">ROAS</p>
-              <p className="text-lg font-bold text-emerald-accent">4.2x</p>
-            </div>
-          </div>
+          <div className="flex items-center gap-4"><div><p className="text-xs font-medium text-cyan-accent">📈 Campaign snapshot</p><p className="text-sm font-medium text-text-dark">D2C Beauty</p></div><div className="h-8 w-px bg-border-light" /><div><p className="text-xs text-text-light">ROAS</p><p className="text-lg font-bold text-emerald-accent">3.8x</p></div></div>
         </motion.div>
-
-        {/* Performance Hub */}
         <motion.div whileHover={{ y: -5 }} className="rounded-3xl border border-border-light bg-white/90 p-5 shadow-card-soft hover:shadow-card-hover xl:p-6">
           <h3 className="text-lg font-semibold text-text-dark xl:text-xl">Performance hub</h3>
           <p className="text-sm text-text-light mb-4">Real-time dash</p>
           <div className="grid grid-cols-3 gap-y-4 xl:gap-y-6">
-            <Metric label="Leads" value="12.4k" tone="green" />
-            <Metric label="ROAS" value="3.8x" tone="gold" />
-            <Metric label="CPL" value="-22%" tone="green" />
-            <Metric label="Reply" value="3m 12s" tone="cyan" />
-            <Metric label="Bookings" value="847" tone="purple" />
-            <Metric label="Reels" value="24+" tone="pink" />
+            <Metric label="Leads" value="850+" tone="green" /><Metric label="ROAS" value="2.8x" tone="gold" /><Metric label="CPL" value="-18%" tone="green" />
+            <Metric label="Reply" value="3m 12s" tone="cyan" /><Metric label="Bookings" value="120+" tone="purple" /><Metric label="Reels" value="45+" tone="pink" />
           </div>
-          <p className="mt-4 border-t border-border-light pt-4 text-sm italic text-text-gray">
-            💬 "Scaled to ₹15L/mo in 4 months"
-          </p>
+          <p className="mt-4 border-t border-border-light pt-4 text-sm italic text-text-gray">💬 "Scaled from 0 to ₹5L/mo in 3 months"</p>
         </motion.div>
-
-        {/* WhatsApp Leads */}
         <motion.div whileHover={{ y: -5 }} className="w-4/5 self-start rounded-2xl border border-emerald-accent/20 bg-white/90 p-4 shadow-card-soft">
           <p className="mb-3 text-xs font-medium uppercase text-emerald-accent">💬 WhatsApp leads</p>
           <div className="space-y-3">
-            <div className="flex gap-3">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-gold to-orange-accent" />
-              <div className="rounded-2xl bg-bg-gray/80 p-3">
-                <p className="text-xs text-text-dark">Course details</p>
-                <p className="text-[10px] text-text-muted">Just now</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-cyan-accent to-purple-accent" />
-              <div className="rounded-2xl bg-bg-gray/80 p-3">
-                <p className="text-xs text-text-dark">Ad management</p>
-                <p className="text-[10px] text-text-muted">2m ago</p>
-              </div>
-            </div>
+            <div className="flex gap-3"><div className="h-8 w-8 rounded-full bg-gradient-to-br from-gold to-orange-accent" /><div className="rounded-2xl bg-bg-gray/80 p-3"><p className="text-xs text-text-dark">Course details</p><p className="text-[10px] text-text-muted">Just now</p></div></div>
+            <div className="flex gap-3"><div className="h-8 w-8 rounded-full bg-gradient-to-br from-cyan-accent to-purple-accent" /><div className="rounded-2xl bg-bg-gray/80 p-3"><p className="text-xs text-text-dark">Ad management</p><p className="text-[10px] text-text-muted">2m ago</p></div></div>
           </div>
         </motion.div>
-        
       </div>
     </div>
   </section>
