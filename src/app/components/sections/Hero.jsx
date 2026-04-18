@@ -81,7 +81,7 @@ export const Hero = () => (
     </motion.div>
 
     {/* Right Column - DESKTOP ONLY (hidden on mobile) */}
-    <div className="mt-8 hidden w-full max-w-md lg:mt-0 lg:block lg:w-1/2 xl:max-w-lg">
+    <div className="mt-8 pt-20 hidden w-full max-w-md lg:mt-0 lg:block lg:w-1/2 xl:max-w-lg">
       <div className="grid gap-4 xl:gap-6">
         
         {/* Campaign Snapshot */}
