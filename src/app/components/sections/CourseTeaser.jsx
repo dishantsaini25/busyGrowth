@@ -122,33 +122,33 @@ export const CourseTeaser = () => (
           transition={{ delay: 0.2 }}
           className="mt-8"
         >
-          <div className="rounded-2xl border-2 border-dashed border-amber/40 bg-gradient-to-r from-amber/10 via-orange/5 to-pink/10 p-5">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-amber to-orange text-white">
-                <span className="text-lg">🎓</span>
-              </div>
-              <div>
-                <span className="inline-block rounded-full bg-amber/20 px-2.5 py-0.5 text-xs font-bold text-amber">
-                  NEXT BATCH
-                </span>
-                <h4 className="mt-1 font-display text-lg font-bold text-text-primary">
-                  Limited Seats Available
-                </h4>
-              </div>
-            </div>
-            <p className="mt-3 text-sm text-text-secondary">
-              Join 500+ students who transformed their careers. Next batch starts soon!
-            </p>
-            <Link 
-              href="/contact" 
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber to-orange px-6 py-3 text-sm font-semibold text-white shadow-glow-amber transition-all hover:scale-[1.02] sm:w-auto"
-            >
-              Reserve your seat
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+     <div className="rounded-2xl border-2 border-dashed border-amber/40 bg-gradient-to-br from-amber/20 via-orange/15 to-pink/20 p-5 shadow-lg">
+  <div className="flex items-center gap-3">
+    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-amber via-orange to-pink text-white shadow-glow-amber">
+      <span className="text-xl animate-pulse">🎓</span>
+    </div>
+    <div>
+      <span className="inline-block rounded-full bg-gradient-to-r from-amber to-orange px-3 py-1 text-xs font-bold text-white shadow-sm">
+        🔥 NEXT BATCH
+      </span>
+      <h4 className="mt-1 font-display text-lg font-bold text-text-dark">
+        Limited Seats Available
+      </h4>
+    </div>
+  </div>
+  <p className="mt-3 text-sm font-medium text-text-dark">
+    Join <span className="font-bold text-amber">500+ students</span> who transformed their careers. Next batch starts soon!
+  </p>
+  <Link 
+    href="/contact" 
+    className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber via-orange to-pink px-6 py-3 text-sm font-bold text-white shadow-glow-amber transition-all hover:scale-[1.02] hover:shadow-glow-pink sm:w-auto"
+  >
+    Reserve your seat
+    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+  </Link>
+</div>
         </motion.div>
       </motion.div>
 
