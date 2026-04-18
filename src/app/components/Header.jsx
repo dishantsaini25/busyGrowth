@@ -45,11 +45,10 @@ export const Header = () => {
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
-        }`}
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
+          }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
             <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
               BusyGrowth
@@ -123,7 +122,7 @@ export const Header = () => {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-40 overflow-y-auto bg-white/98 backdrop-blur-xl lg:hidden">
             <div className="flex min-h-full flex-col px-6 py-16">
               <motion.nav initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-1">
-                
+
                 <div className="border-b border-border-light py-2">
                   <button onClick={() => setActiveMobileCategory(activeMobileCategory === 'services' ? null : 'services')} className="flex w-full items-center justify-between py-3 text-xl font-medium text-text-dark">
                     Services
@@ -146,7 +145,7 @@ export const Header = () => {
                     )}
                   </AnimatePresence>
                 </div>
-                
+
                 <div className="border-b border-border-light py-2">
                   <button onClick={() => setActiveMobileCategory(activeMobileCategory === 'courses' ? null : 'courses')} className="flex w-full items-center justify-between py-3 text-xl font-medium text-text-dark">
                     Courses
@@ -164,13 +163,13 @@ export const Header = () => {
                     )}
                   </AnimatePresence>
                 </div>
-                
+
                 <Link href="/contact" onClick={handleLinkClick} className="block py-4 text-xl font-medium text-text-dark">Contact</Link>
-                
+
                 <div className="mt-6">
                   <Link href="/contact" onClick={handleLinkClick} className="block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-3 text-center text-base font-semibold text-white shadow-glow-gold">Book strategy call</Link>
                 </div>
-                
+
                 <div className="mt-6 space-y-1 text-center">
                   <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-gold">📧 hello@busygrowth.studio</a>
                   <a href="https://wa.me/919352757834" className="block text-sm font-medium text-emerald-accent">📱 +91 93527 57834</a>
