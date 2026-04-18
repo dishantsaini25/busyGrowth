@@ -7,12 +7,13 @@ export const Footer = () => {
   
   return (
     <footer className="relative mt-24 border-t border-border-light bg-white">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      {/* Top Gradient Line - Fixed */}
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
       
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-8 md:py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           
-          {/* Column 1: Brand - Full width on mobile */}
+          {/* Column 1: Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +22,7 @@ export const Footer = () => {
             className="space-y-3 sm:col-span-2 lg:col-span-1"
           >
             <Link href="/" className="inline-block">
-              <span className="bg-gradient-to-r from-gold via-gold/90 to-gold-dim bg-clip-text text-2xl font-bold text-transparent">
+              <span className="bg-linear-to-r from-gold via-gold/90 to-gold-dim bg-clip-text text-2xl font-bold text-transparent">
                 BusyGrowth
               </span>
               <span className="ml-1 text-xs font-medium uppercase text-text-light">Studio</span>
@@ -31,7 +32,7 @@ export const Footer = () => {
               We build digital experiences that print leads on autopilot.
             </p>
             
-            {/* Mobile-only contact (shows only on small screens) */}
+            {/* Mobile-only contact */}
             <div className="flex gap-4 pt-2 sm:hidden">
               <a href="mailto:hello@busygrowth.studio" className="text-sm text-cyan-accent">
                 📧 hello@busygrowth.studio
@@ -42,7 +43,7 @@ export const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Column 2: Quick Links + Services (Side-by-Side on Mobile) */}
+          {/* Column 2: Quick Links + More Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -58,25 +59,14 @@ export const Footer = () => {
               <ul className="space-y-2">
                 <li><Link href="/" className="text-sm text-text-gray transition hover:text-gold">Home</Link></li>
                 <li><Link href="/services" className="text-sm text-text-gray transition hover:text-gold">Services</Link></li>
-                <li><Link href="/#brands" className="text-sm text-text-gray transition hover:text-gold">Brands</Link></li>
                 <li><Link href="/course" className="text-sm text-text-gray transition hover:text-gold">Full DM Course</Link></li>
-              </ul>
-            </div>
-            
-            {/* More Links */}
-            <div className="space-y-3">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-dark">
-                &nbsp;
-              </h3>
-              <ul className="space-y-2">
-                <li><Link href="/performance-course" className="text-sm text-text-gray transition hover:text-gold">Performance Course</Link></li>
-                <li><Link href="/#faq" className="text-sm text-text-gray transition hover:text-gold">FAQ</Link></li>
+                                <li><Link href="/performance-course" className="text-sm text-text-gray transition hover:text-gold">Performance Course</Link></li>
                 <li><Link href="/contact" className="text-sm text-text-gray transition hover:text-gold">Contact</Link></li>
               </ul>
             </div>
           </motion.div>
 
-          {/* Column 3: Services (Hidden on mobile, shown in Column 2) */}
+          {/* Column 3: Services (Desktop only) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -108,11 +98,12 @@ export const Footer = () => {
             </h3>
             
             <div className="space-y-3">
+              {/* WhatsApp Card - Emerald Gradient */}
               <a
                 href="https://wa.me/919352757834"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-xl border border-emerald-accent/20 bg-emerald-accent/5 p-3 transition-all hover:bg-emerald-accent/10"
+                className="group flex items-center gap-3 rounded-xl border border-emerald-accent/20 bg-linear-to-br from-emerald-accent/5 to-emerald-accent/10 p-3 transition-all hover:from-emerald-accent/10 hover:to-emerald-accent/20"
               >
                 <div className="rounded-full bg-emerald-accent/20 p-2 text-emerald-accent">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -127,9 +118,10 @@ export const Footer = () => {
                 </div>
               </a>
 
+              {/* Email Card - Cyan Gradient */}
               <a
                 href="mailto:hello@busygrowth.studio"
-                className="group flex items-center gap-3 rounded-xl border border-cyan-accent/20 bg-cyan-accent/5 p-3 transition-all hover:bg-cyan-accent/10"
+                className="group flex items-center gap-3 rounded-xl border border-cyan-accent/20 bg-linear-to-br from-cyan-accent/5 to-cyan-accent/10 p-3 transition-all hover:from-cyan-accent/10 hover:to-cyan-accent/20"
               >
                 <div className="rounded-full bg-cyan-accent/20 p-2 text-cyan-accent">
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,7 +136,8 @@ export const Footer = () => {
                 </div>
               </a>
 
-              <div className="flex items-start gap-3 rounded-xl border border-border-light bg-white/50 p-3">
+              {/* Location Card - Gold Gradient */}
+              <div className="flex items-start gap-3 rounded-xl border border-border-light bg-linear-to-br from-gold/5 to-amber-50/30 p-3">
                 <div className="rounded-full bg-gold/20 p-2 text-gold">
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -161,13 +154,13 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Stats Strip - Compact on Mobile */}
+        {/* Stats Strip */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="my-8 grid grid-cols-4 gap-2 rounded-xl border border-border-light bg-bg-gray p-4 md:my-12 md:gap-4 md:p-6"
+          className="my-8 grid grid-cols-4 gap-2 rounded-xl border border-border-light bg-linear-to-br from-slate-50 to-gray-50 p-4 md:my-12 md:gap-4 md:p-6"
         >
           <div className="text-center">
             <p className="text-xl font-bold text-gold md:text-2xl">80+</p>
@@ -194,17 +187,11 @@ export const Footer = () => {
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:gap-6 md:text-sm">
-            <Link href="/privacy" className="text-text-light transition hover:text-gold">
-              Privacy
-            </Link>
+            <Link href="/privacy" className="text-text-light transition hover:text-gold">Privacy</Link>
             <span className="text-border-light">|</span>
-            <Link href="/terms" className="text-text-light transition hover:text-gold">
-              Terms
-            </Link>
+            <Link href="/terms" className="text-text-light transition hover:text-gold">Terms</Link>
             <span className="text-border-light">|</span>
-            <Link href="/refund" className="text-text-light transition hover:text-gold">
-              Refund
-            </Link>
+            <Link href="/refund" className="text-text-light transition hover:text-gold">Refund</Link>
           </div>
 
           <p className="text-xs text-text-light md:text-sm">
