@@ -53,7 +53,7 @@ export const FounderSection = () => {
               className="group relative overflow-hidden rounded-3xl border border-border-light bg-white shadow-card-soft transition-all hover:shadow-card-hover"
             >
               {/* Full Width Image Section */}
-              <div className="relative h-72 w-full overflow-hidden sm:h-80 lg:h-96">
+              <div className="relative h-56 w-full overflow-hidden sm:h-64 lg:h-80">
                 <img
                   src={founder.image}
                   alt={founder.name}
@@ -63,54 +63,57 @@ export const FounderSection = () => {
                   }}
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 
                 {/* Name & Role Overlay on Image */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                  <h3 className="font-manrope text-2xl font-bold text-white sm:text-3xl">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                  <h3 className="font-manrope text-xl font-bold text-white sm:text-2xl lg:text-3xl">
                     {founder.name}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-gold sm:text-base">
+                  <p className="mt-1 text-xs font-medium text-gold sm:text-sm">
                     {founder.role}
                   </p>
                 </div>
-
               </div>
 
               {/* Content Section */}
-              <div className="p-5 sm:p-6">
-                {/* Contact Details */}
-                <div className="grid grid-cols-2 gap-3">
+              <div className="p-4 sm:p-5 lg:p-6">
+                {/* Contact Details - Stack on Mobile */}
+                <div className="flex flex-col gap-3 sm:grid sm:grid-cols-2">
                   {/* Phone Card */}
                   <a
                     href={`tel:${founder.phone.replace(/\s/g, '')}`}
-                    className="group/card flex flex-col items-center rounded-xl border border-border-light bg-linear-to-br from-emerald-accent/5 to-emerald-accent/10 p-3 text-center transition-all hover:border-emerald-accent/30 hover:shadow-md sm:p-4"
+                    className="group/card flex items-center gap-3 rounded-xl border border-border-light bg-gradient-to-br from-emerald-accent/5 to-emerald-accent/10 p-3 transition-all hover:border-emerald-accent/30 hover:shadow-md sm:flex-col sm:items-center sm:text-center"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-accent/20 text-emerald-accent transition-all group-hover/card:bg-emerald-accent group-hover/card:text-white sm:h-12 sm:w-12">
-                      <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-accent/20 text-emerald-accent transition-all group-hover/card:bg-emerald-accent group-hover/card:text-white sm:h-10 sm:w-10">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19.077 4.928C17.191 3.041 14.683 2 12.006 2 6.499 2 2.006 6.493 2.006 12c0 1.76.46 3.483 1.333 5l-1.333 4.86 5.013-1.313c1.452.793 3.087 1.207 4.78 1.207h.004c5.507 0 10-4.493 10-10 0-2.677-1.041-5.185-2.926-7.072z" />
                       </svg>
                     </div>
-                    <span className="mt-2 text-xs font-medium text-text-dark sm:text-sm">
-                      {founder.phone}
-                    </span>
-                    <span className="text-xs text-text-light">Call / WhatsApp</span>
+                    <div className="min-w-0 flex-1 sm:text-center">
+                      <span className="block truncate text-xs font-medium text-text-dark sm:text-sm">
+                        {founder.phone}
+                      </span>
+                      <span className="text-[10px] text-text-light sm:text-xs">Call / WhatsApp</span>
+                    </div>
                   </a>
 
                   {/* Email Card */}
                   <a
                     href={`mailto:${founder.email}`}
-                    className="group/card flex flex-col items-center rounded-xl border border-border-light bg-linear-to-br from-cyan-accent/5 to-cyan-accent/10 p-3 text-center transition-all hover:border-cyan-accent/30 hover:shadow-md sm:p-4"
+                    className="group/card flex items-center gap-3 rounded-xl border border-border-light bg-gradient-to-br from-cyan-accent/5 to-cyan-accent/10 p-3 transition-all hover:border-cyan-accent/30 hover:shadow-md sm:flex-col sm:items-center sm:text-center"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-accent/20 text-cyan-accent transition-all group-hover/card:bg-cyan-accent group-hover/card:text-white sm:h-12 sm:w-12">
-                      <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cyan-accent/20 text-cyan-accent transition-all group-hover/card:bg-cyan-accent group-hover/card:text-white sm:h-10 sm:w-10">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="mt-2 text-xs font-medium text-text-dark sm:text-sm">
-                      {founder.email}
-                    </span>
-                    <span className="text-xs text-text-light">Email</span>
+                    <div className="min-w-0 flex-1 sm:text-center">
+                      <span className="block truncate text-xs font-medium text-text-dark sm:text-sm">
+                        {founder.email}
+                      </span>
+                      <span className="text-[10px] text-text-light sm:text-xs">Email</span>
+                    </div>
                   </a>
                 </div>
 
@@ -120,15 +123,15 @@ export const FounderSection = () => {
                     href={`https://wa.me/${founder.phone.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 rounded-full bg-emerald-accent px-3 py-2.5 text-center text-xs font-semibold text-white transition-all hover:bg-emerald-accent/90 hover:shadow-glow-gold sm:px-4 sm:py-3 sm:text-sm"
+                    className="flex-1 rounded-full bg-emerald-accent px-3 py-2 text-center text-xs font-semibold text-white transition-all hover:bg-emerald-600 sm:px-4 sm:py-2.5 sm:text-sm"
                   >
-                    WhatsApp →
+                    WhatsApp
                   </a>
                   <a
                     href={`mailto:${founder.email}`}
-                    className="flex-1 rounded-full bg-cyan-accent px-3 py-2.5 text-center text-xs font-semibold text-white transition-all hover:bg-cyan-accent/90 sm:px-4 sm:py-3 sm:text-sm"
+                    className="flex-1 rounded-full bg-cyan-accent px-3 py-2 text-center text-xs font-semibold text-white transition-all hover:bg-cyan-600 sm:px-4 sm:py-2.5 sm:text-sm"
                   >
-                    Send Email →
+                    Email
                   </a>
                 </div>
               </div>
@@ -144,12 +147,12 @@ export const FounderSection = () => {
           transition={{ delay: 0.2 }}
           className="mt-8 text-center sm:mt-10"
         >
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-gold/30 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-sm sm:px-8 sm:py-3">
-            <span className="text-gold">✨</span>
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-gold/30 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-3">
+            <span className="text-gold text-sm">✨</span>
             <span className="text-xs font-medium text-text-dark sm:text-sm">
               Direct access to founders — no account managers
             </span>
-            <span className="text-gold">✨</span>
+            <span className="text-gold text-sm">✨</span>
           </div>
         </motion.div>
       </div>
