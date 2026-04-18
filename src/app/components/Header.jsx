@@ -43,7 +43,7 @@ export const Header = () => {
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`fixed left-0 right-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-4 py-2 transition-all duration-300 sm:px-6 lg:px-8 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
+        className={`sticky left-0 right-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-4 py-2 transition-all duration-300 sm:px-6 lg:px-8 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
           }`}
       >
         <Link href="/" className="flex items-center">
