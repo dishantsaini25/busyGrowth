@@ -43,9 +43,8 @@ export const Header = () => {
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`fixed left-0 right-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-4 py-4 transition-all duration-300 md:px-6 lg:px-8 ${
-          scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
-        }`}
+        className={`fixed left-0 right-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-4 py-2 transition-all duration-300 sm:px-6 lg:px-8 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
+          }`}
       >
         <Link href="/" className="flex items-center">
           <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
@@ -133,7 +132,7 @@ export const Header = () => {
                     <Link href="/services" onClick={handleLinkClick} className="block pt-2 text-base font-medium text-gold">View all services →</Link>
                   </div>
                 </details>
-                
+
                 <details className="group">
                   <summary className="list-none py-3 text-2xl font-medium text-text-dark marker:hidden">Courses</summary>
                   <div className="ml-4 mt-2 space-y-2">
@@ -142,13 +141,13 @@ export const Header = () => {
                     ))}
                   </div>
                 </details>
-                
+
                 <Link href="/contact" onClick={handleLinkClick} className="block py-3 text-2xl font-medium text-text-dark">Contact</Link>
-                
+
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mt-8">
                   <Link href="/contact" onClick={handleLinkClick} className="inline-block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-4 text-center text-lg font-semibold text-white shadow-glow-gold">Book strategy call</Link>
                 </motion.div>
-                
+
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-6 flex flex-col items-center gap-3 text-base">
                   <a href="mailto:hello@busygrowth.studio" className="text-text-light hover:text-gold">📧 hello@busygrowth.studio</a>
                   <a href="https://wa.me/919352757834" className="text-emerald-accent hover:underline">📱 +91 93527 57834</a>

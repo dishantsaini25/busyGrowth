@@ -23,10 +23,10 @@ export default function RootLayout({ children }) {
         <div className="fixed inset-0 z-0 bg-grid-pattern" />
         <div className="fixed -left-40 top-20 z-0 h-[500px] w-[500px] rounded-full bg-amber-50/50 blur-3xl" />
         <div className="fixed -right-40 bottom-20 z-0 h-[500px] w-[500px] rounded-full bg-yellow-50/50 blur-3xl" />
-        
+
         <CursorLayer />
         <Header />
-        <main className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</main>
+        <main className="relative z-10 mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>
