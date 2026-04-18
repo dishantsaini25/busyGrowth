@@ -24,7 +24,7 @@ const Metric = ({ label, value, tone = "neutral" }) => {
 };
 
 export const Hero = () => (
-  <section className="relative flex min-h-screen flex-col items-center justify-start px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
+  <section className="relative flex flex-col items-center justify-start px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
     
     {/* Left Column - Always visible */}
     <motion.div className="w-full max-w-2xl lg:w-1/2" variants={fadeUp} initial="hidden" animate="visible">
