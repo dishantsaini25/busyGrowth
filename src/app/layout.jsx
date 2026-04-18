@@ -1,6 +1,6 @@
 import { Inter, Reem_Kufi } from "next/font/google";
 import "./globals.css";
-import { CursorLayer } from "./components/ux/CursorLayer";
+// import { CursorLayer } from "./components/ux/CursorLayer";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { WhatsAppButton } from "./components/WhatsAppButton";
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         <div className="fixed -right-40 top-20 z-0 h-[600px] w-[600px] rounded-full bg-cover bg-center opacity-8 blur-3xl" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800')" }} />
         <div className="fixed -left-40 bottom-20 z-0 h-[500px] w-[500px] rounded-full bg-cover bg-center opacity-6 blur-3xl" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800')" }} />
         
-        <CursorLayer />
+        {/* <CursorLayer /> */}
         <Header />
         <main className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</main>
         <Footer />
