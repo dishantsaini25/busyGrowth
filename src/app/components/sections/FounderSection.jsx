@@ -7,15 +7,15 @@ export const FounderSection = () => {
       name: "Ankit",
       role: "Founder",
       image: "/images/ankit.png",
-      phone: "+91 93527 57834",
-      email: "ankit@busygrowth.studio",
+      phone: "+91 9079315929",
+      email: "ankitsinghthakur7773@gmail.com",
     },
     {
       name: "Kanhiya",
       role: "Co-Founder",
       image: "/images/kanhiya.webp",
-      phone: "+91 98765 43210",
-      email: "kanhiya@busygrowth.studio",
+      phone: "+91 93527 57834",
+      email: "kanhiyakumawat139@gmail.com",
     },
   ];
 
