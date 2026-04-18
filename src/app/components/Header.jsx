@@ -22,7 +22,7 @@ export const Header = () => {
   const [coursesOpen, setCoursesOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -43,83 +43,89 @@ export const Header = () => {
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`sticky left-0 right-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-4 py-2 transition-all duration-300 sm:px-6 lg:px-8 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
-          }`}
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+          scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
+        }`}
       >
-        <Link href="/" className="flex items-center">
-          <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
-            BusyGrowth
-          </span>
-          <span className="ml-1.5 text-xs font-medium text-text-light sm:text-sm">Studio</span>
-        </Link>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center">
+            <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
+              BusyGrowth
+            </span>
+            <span className="ml-1 text-[10px] font-medium text-text-light sm:text-xs">Studio</span>
+          </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-text-gray lg:flex lg:gap-8">
-          <div className="relative">
-            <button onClick={() => { setServicesOpen(!servicesOpen); setCoursesOpen(false); }} className="flex items-center gap-1 transition hover:text-gold">
-              Services <svg className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full mt-2 w-[560px] rounded-2xl border border-border-light bg-white p-6 shadow-xl lg:w-[640px]">
-                  <div className="grid grid-cols-2 gap-6">
-                    {servicesMenu.map((cat) => (
-                      <div key={cat.category}>
-                        <Link href={cat.href} className="mb-3 block font-semibold text-text-dark hover:text-gold" onClick={() => setServicesOpen(false)}>{cat.category}</Link>
-                        <ul className="space-y-2">
-                          {cat.items.map((item) => (
-                            <li key={item}><Link href={`/services#${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-text-gray hover:text-gold" onClick={() => setServicesOpen(false)}>{item}</Link></li>
-                          ))}
-                        </ul>
-                      </div>
+          <nav className="hidden items-center gap-4 text-sm font-medium text-text-gray lg:flex lg:gap-6">
+            <div className="relative">
+              <button onClick={() => { setServicesOpen(!servicesOpen); setCoursesOpen(false); }} className="flex items-center gap-1 transition hover:text-gold">
+                Services <svg className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full mt-2 w-[560px] rounded-2xl border border-border-light bg-white p-6 shadow-xl">
+                    <div className="grid grid-cols-2 gap-6">
+                      {servicesMenu.map((cat) => (
+                        <div key={cat.category}>
+                          <Link href={cat.href} className="mb-3 block font-semibold text-text-dark hover:text-gold" onClick={() => setServicesOpen(false)}>{cat.category}</Link>
+                          <ul className="space-y-2">
+                            {cat.items.map((item) => (
+                              <li key={item}><Link href={`/services#${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-text-gray hover:text-gold" onClick={() => setServicesOpen(false)}>{item}</Link></li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 border-t border-border-light pt-4">
+                      <Link href="/services" className="text-sm font-medium text-gold hover:underline" onClick={() => setServicesOpen(false)}>View all 35+ services →</Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div className="relative">
+              <button onClick={() => { setCoursesOpen(!coursesOpen); setServicesOpen(false); }} className="flex items-center gap-1 transition hover:text-gold">
+                Courses <svg className={`h-3 w-3 transition-transform ${coursesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <AnimatePresence>
+                {coursesOpen && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-border-light bg-white p-2 shadow-xl">
+                    {courseLinks.map((link) => (
+                      <Link key={link.href} href={link.href} className="block rounded-xl px-4 py-3 text-sm text-text-gray hover:bg-bg-gray hover:text-gold" onClick={() => setCoursesOpen(false)}>{link.label}</Link>
                     ))}
-                  </div>
-                  <div className="mt-4 border-t border-border-light pt-4">
-                    <Link href="/services" className="text-sm font-medium text-gold hover:underline" onClick={() => setServicesOpen(false)}>View all 35+ services →</Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-          <div className="relative">
-            <button onClick={() => { setCoursesOpen(!coursesOpen); setServicesOpen(false); }} className="flex items-center gap-1 transition hover:text-gold">
-              Courses <svg className={`h-3 w-3 transition-transform ${coursesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            <Link href="/contact" className="transition hover:text-gold">Contact</Link>
+          </nav>
+
+          <Link href="/contact" className="hidden rounded-full bg-gradient-to-r from-gold to-gold-dim px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 hover:shadow-glow-gold lg:inline-block">
+            Book strategy call
+          </Link>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link href="/contact" className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-3 py-1.5 text-xs font-semibold text-white shadow-md">
+              Call
+            </Link>
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1 rounded-full border border-gold/30 bg-white shadow-sm">
+              <motion.span animate={mobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="h-0.5 w-4 bg-text-dark" />
+              <motion.span animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="h-0.5 w-4 bg-text-dark" />
+              <motion.span animate={mobileMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }} className="h-0.5 w-4 bg-text-dark" />
             </button>
-            <AnimatePresence>
-              {coursesOpen && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-border-light bg-white p-2 shadow-xl">
-                  {courseLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="block rounded-xl px-4 py-3 text-sm text-text-gray hover:bg-bg-gray hover:text-gold" onClick={() => setCoursesOpen(false)}>{link.label}</Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
-
-          <Link href="/contact" className="transition hover:text-gold">Contact</Link>
-        </nav>
-
-        <Link href="/contact" className="hidden rounded-full bg-gradient-to-r from-gold to-gold-dim px-5 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 hover:shadow-glow-gold lg:inline-block">
-          Book strategy call
-        </Link>
-
-        <div className="flex items-center gap-3 lg:hidden">
-          <Link href="/contact" className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-3 py-1.5 text-xs font-semibold text-white shadow-md sm:px-4 sm:py-2 sm:text-sm">Call</Link>
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="relative z-50 flex h-9 w-9 flex-col items-center justify-center gap-1.5 rounded-full border-2 border-gold/30 bg-white shadow-md sm:h-10 sm:w-10">
-            <motion.span animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} className="h-0.5 w-5 bg-text-dark" />
-            <motion.span animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="h-0.5 w-5 bg-text-dark" />
-            <motion.span animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} className="h-0.5 w-5 bg-text-dark" />
-          </button>
         </div>
       </motion.header>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-40 overflow-y-auto bg-white/98 backdrop-blur-xl lg:hidden">
-            <div className="flex min-h-full flex-col px-6 py-20">
-              <motion.nav initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-2">
+            <div className="flex min-h-full flex-col px-6 py-16">
+              <motion.nav initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-1">
                 <details className="group">
-                  <summary className="list-none py-3 text-2xl font-medium text-text-dark marker:hidden">Services</summary>
+                  <summary className="list-none py-3 text-xl font-medium text-text-dark marker:hidden">Services</summary>
                   <div className="ml-4 mt-2 space-y-4">
                     {servicesMenu.map((cat) => (
                       <div key={cat.category}>
@@ -132,29 +138,29 @@ export const Header = () => {
                     <Link href="/services" onClick={handleLinkClick} className="block pt-2 text-base font-medium text-gold">View all services →</Link>
                   </div>
                 </details>
-
+                
                 <details className="group">
-                  <summary className="list-none py-3 text-2xl font-medium text-text-dark marker:hidden">Courses</summary>
+                  <summary className="list-none py-3 text-xl font-medium text-text-dark marker:hidden">Courses</summary>
                   <div className="ml-4 mt-2 space-y-2">
                     {courseLinks.map((c) => (
                       <Link key={c.href} href={c.href} onClick={handleLinkClick} className="block py-1 text-base text-text-gray">{c.label}</Link>
                     ))}
                   </div>
                 </details>
-
-                <Link href="/contact" onClick={handleLinkClick} className="block py-3 text-2xl font-medium text-text-dark">Contact</Link>
-
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mt-8">
-                  <Link href="/contact" onClick={handleLinkClick} className="inline-block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-4 text-center text-lg font-semibold text-white shadow-glow-gold">Book strategy call</Link>
-                </motion.div>
-
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-6 flex flex-col items-center gap-3 text-base">
-                  <a href="mailto:hello@busygrowth.studio" className="text-text-light hover:text-gold">📧 hello@busygrowth.studio</a>
-                  <a href="https://wa.me/919352757834" className="text-emerald-accent hover:underline">📱 +91 93527 57834</a>
-                </motion.div>
+                
+                <Link href="/contact" onClick={handleLinkClick} className="block py-3 text-xl font-medium text-text-dark">Contact</Link>
+                
+                <div className="mt-6">
+                  <Link href="/contact" onClick={handleLinkClick} className="block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-3 text-center text-base font-semibold text-white shadow-glow-gold">Book strategy call</Link>
+                </div>
+                
+                <div className="mt-6 space-y-2 text-center">
+                  <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-gold">📧 hello@busygrowth.studio</a>
+                  <a href="https://wa.me/919352757834" className="block text-sm font-medium text-emerald-accent">📱 +91 93527 57834</a>
+                </div>
               </motion.nav>
             </div>
-            <button onClick={() => setMobileMenuOpen(false)} className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border-2 border-gold/40 bg-white px-8 py-3 text-base font-medium text-text-dark shadow-md hover:bg-gold/5">Close Menu ✕</button>
+            <button onClick={() => setMobileMenuOpen(false)} className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-gold/40 bg-white px-6 py-2 text-sm font-medium text-text-dark shadow-md">Close ✕</button>
           </motion.div>
         )}
       </AnimatePresence>
