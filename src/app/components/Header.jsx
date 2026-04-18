@@ -54,7 +54,7 @@ export const Header = () => {
             <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
               BusyGrowth
             </span>
-            <span className="ml-1 text-[10px] font-medium text-text-light sm:text-xs">Studio</span>
+            <span className="ml-1 text-[10px] bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xs">Studio</span>
           </Link>
 
           <nav className="hidden items-center gap-4 text-sm font-medium text-text-gray lg:flex lg:gap-6">
