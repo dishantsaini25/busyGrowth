@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -49,16 +50,24 @@ export const Header = () => {
           }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center">
-            <span className="bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
-              BusyGrowth
-            </span>
-            <span className="ml-1 text-[10px] bg-gradient-to-r from-gold via-gold-bright to-gold-dim bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xs">Studio</span>
-          </Link>
+
+    {/* Logo - Transparent */}
+<Link href="/" className="flex items-center">
+  <div className="flex items-center justify-center" style={{ backgroundColor: 'transparent' }}>
+    <img 
+      src="/images/logo1.png" 
+      alt="Logo" 
+      className="h-10 w-auto object-contain sm:h-12 lg:h-18"
+    />
+  </div>
+  <span className="fallback-logo hidden bg-gradient-primary bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
+    BusyGrowth
+  </span>
+</Link>
 
           <nav className="hidden items-center gap-4 text-sm font-medium text-text-gray lg:flex lg:gap-6">
             <div className="relative">
-              <button onClick={() => { setServicesOpen(!servicesOpen); setCoursesOpen(false); }} className="flex items-center gap-1 transition hover:text-gold">
+              <button onClick={() => { setServicesOpen(!servicesOpen); setCoursesOpen(false); }} className="flex items-center gap-1 transition hover:text-primary">
                 Services <svg className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               <AnimatePresence>
@@ -67,17 +76,17 @@ export const Header = () => {
                     <div className="grid grid-cols-2 gap-6">
                       {servicesMenu.map((cat) => (
                         <div key={cat.category}>
-                          <Link href={cat.href} className="mb-3 block font-semibold text-text-dark hover:text-gold" onClick={() => setServicesOpen(false)}>{cat.category}</Link>
+                          <Link href={cat.href} className="mb-3 block font-semibold text-text-dark hover:text-primary" onClick={() => setServicesOpen(false)}>{cat.category}</Link>
                           <ul className="space-y-2">
                             {cat.items.map((item) => (
-                              <li key={item}><Link href={`/services#${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-text-gray hover:text-gold" onClick={() => setServicesOpen(false)}>{item}</Link></li>
+                              <li key={item}><Link href={`/services#${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-text-gray hover:text-primary" onClick={() => setServicesOpen(false)}>{item}</Link></li>
                             ))}
                           </ul>
                         </div>
                       ))}
                     </div>
                     <div className="mt-4 border-t border-border-light pt-4">
-                      <Link href="/services" className="text-sm font-medium text-gold hover:underline" onClick={() => setServicesOpen(false)}>View all 35+ services →</Link>
+                      <Link href="/services" className="text-sm font-medium text-primary hover:underline" onClick={() => setServicesOpen(false)}>View all 35+ services →</Link>
                     </div>
                   </motion.div>
                 )}
@@ -85,30 +94,30 @@ export const Header = () => {
             </div>
 
             <div className="relative">
-              <button onClick={() => { setCoursesOpen(!coursesOpen); setServicesOpen(false); }} className="flex items-center gap-1 transition hover:text-gold">
+              <button onClick={() => { setCoursesOpen(!coursesOpen); setServicesOpen(false); }} className="flex items-center gap-1 transition hover:text-primary">
                 Courses <svg className={`h-3 w-3 transition-transform ${coursesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               <AnimatePresence>
                 {coursesOpen && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-border-light bg-white p-2 shadow-xl">
                     {courseLinks.map((link) => (
-                      <Link key={link.href} href={link.href} className="block rounded-xl px-4 py-3 text-sm text-text-gray hover:bg-bg-gray hover:text-gold" onClick={() => setCoursesOpen(false)}>{link.label}</Link>
+                      <Link key={link.href} href={link.href} className="block rounded-xl px-4 py-3 text-sm text-text-gray hover:bg-bg-gray hover:text-primary" onClick={() => setCoursesOpen(false)}>{link.label}</Link>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link href="/contact" className="transition hover:text-gold">Contact</Link>
+            <Link href="/contact" className="transition hover:text-primary">Contact</Link>
           </nav>
 
-          <Link href="/contact" className="hidden rounded-full bg-gradient-to-r from-gold to-gold-dim px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 hover:shadow-glow-gold lg:inline-block">
+          <Link href="/contact" className="hidden rounded-full bg-gradient-primary px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 hover:shadow-glow lg:inline-block">
             Book strategy call
           </Link>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <Link href="/contact" className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-3 py-1.5 text-xs font-semibold text-white shadow-md">Call</Link>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1 rounded-full border border-gold/30 bg-white shadow-sm">
+            <Link href="/contact" className="rounded-full bg-gradient-primary px-3 py-1.5 text-xs font-semibold text-white shadow-md">Call</Link>
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1 rounded-full border border-primary/30 bg-white shadow-sm">
               <motion.span animate={mobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="h-0.5 w-4 bg-text-dark" />
               <motion.span animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="h-0.5 w-4 bg-text-dark" />
               <motion.span animate={mobileMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }} className="h-0.5 w-4 bg-text-dark" />
@@ -117,6 +126,7 @@ export const Header = () => {
         </div>
       </motion.header>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-40 overflow-y-auto bg-white/98 backdrop-blur-xl lg:hidden">
@@ -126,7 +136,7 @@ export const Header = () => {
                 <div className="border-b border-border-light py-2">
                   <button onClick={() => setActiveMobileCategory(activeMobileCategory === 'services' ? null : 'services')} className="flex w-full items-center justify-between py-3 text-xl font-medium text-text-dark">
                     Services
-                    <svg className={`h-5 w-5 text-gold transition-transform ${activeMobileCategory === 'services' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className={`h-5 w-5 text-primary transition-transform ${activeMobileCategory === 'services' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -135,12 +145,12 @@ export const Header = () => {
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                         <div className="flex flex-wrap gap-2 pb-4 pt-2">
                           {servicesMenu.map((cat) => (
-                            <Link key={cat.category} href={cat.href} onClick={handleLinkClick} className="rounded-full border border-border-light bg-white px-4 py-2 text-sm font-medium text-text-gray shadow-sm transition-all hover:border-gold/40 hover:text-gold">
+                            <Link key={cat.category} href={cat.href} onClick={handleLinkClick} className="rounded-full border border-border-light bg-white px-4 py-2 text-sm font-medium text-text-gray shadow-sm transition-all hover:border-primary/40 hover:text-primary">
                               {cat.category}
                             </Link>
                           ))}
                         </div>
-                        <Link href="/services" onClick={handleLinkClick} className="inline-block pb-3 text-sm font-medium text-gold hover:underline">View all services →</Link>
+                        <Link href="/services" onClick={handleLinkClick} className="inline-block pb-3 text-sm font-medium text-primary hover:underline">View all services →</Link>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -149,7 +159,7 @@ export const Header = () => {
                 <div className="border-b border-border-light py-2">
                   <button onClick={() => setActiveMobileCategory(activeMobileCategory === 'courses' ? null : 'courses')} className="flex w-full items-center justify-between py-3 text-xl font-medium text-text-dark">
                     Courses
-                    <svg className={`h-5 w-5 text-gold transition-transform ${activeMobileCategory === 'courses' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className={`h-5 w-5 text-primary transition-transform ${activeMobileCategory === 'courses' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -157,7 +167,7 @@ export const Header = () => {
                     {activeMobileCategory === 'courses' && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pb-4">
                         {courseLinks.map((c) => (
-                          <Link key={c.href} href={c.href} onClick={handleLinkClick} className="block py-2 text-base text-text-gray transition-colors hover:text-gold">{c.label}</Link>
+                          <Link key={c.href} href={c.href} onClick={handleLinkClick} className="block py-2 text-base text-text-gray transition-colors hover:text-primary">{c.label}</Link>
                         ))}
                       </motion.div>
                     )}
@@ -167,16 +177,16 @@ export const Header = () => {
                 <Link href="/contact" onClick={handleLinkClick} className="block py-4 text-xl font-medium text-text-dark">Contact</Link>
 
                 <div className="mt-6">
-                  <Link href="/contact" onClick={handleLinkClick} className="block w-full rounded-full bg-gradient-to-r from-gold to-gold-dim py-3 text-center text-base font-semibold text-white shadow-glow-gold">Book strategy call</Link>
+                  <Link href="/contact" onClick={handleLinkClick} className="block w-full rounded-full bg-gradient-primary py-3 text-center text-base font-semibold text-white shadow-glow">Book strategy call</Link>
                 </div>
 
                 <div className="mt-6 space-y-1 text-center">
-                  <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-gold">📧 hello@busygrowth.studio</a>
-                  <a href="https://wa.me/919352757834" className="block text-sm font-medium text-emerald-accent">📱 +91 93527 57834</a>
+                  <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-primary">📧 hello@busygrowth.studio</a>
+                  <a href="https://wa.me/919352757834" className="block text-sm font-medium text-green">📱 +91 93527 57834</a>
                 </div>
               </motion.nav>
             </div>
-            <button onClick={() => setMobileMenuOpen(false)} className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-gold/40 bg-white px-6 py-2 text-sm font-medium text-text-dark shadow-md">Close ✕</button>
+            <button onClick={() => setMobileMenuOpen(false)} className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-primary/40 bg-white px-6 py-2 text-sm font-medium text-text-dark shadow-md">Close ✕</button>
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,14 +2,16 @@
 import { motion } from "framer-motion";
 
 const brands = [
-  { name: "BrandOne", logo: "🏷️" },
-  { name: "ClinicX", logo: "🏥" },
-  { name: "D2C Cart", logo: "🛒" },
-  { name: "EduTech", logo: "📚" },
-  { name: "FashionHub", logo: "👗" },
-  { name: "HealthPlus", logo: "💊" },
-  { name: "TechStart", logo: "🚀" },
-  { name: "LocalBites", logo: "🍔" },
+  { name: "Brand One", image: "/images/c1.jpeg" },
+  { name: "Brand Two", image: "/images/c2.jpeg" },
+  { name: "Brand Three", image: "/images/c3.png" },
+  { name: "Brand Four", image: "/images/c4.jpeg" },
+  { name: "Brand Five", image: "/images/c5.png" },
+  { name: "Brand Six", image: "/images/c6.jpeg" },
+  { name: "Brand Seven", image: "/images/c7.jpeg" },
+  { name: "Brand Eight", image: "/images/c8.png" },
+  { name: "Brand Nine", image: "/images/c9.jpeg" },
+  { name: "Brand Ten", image: "/images/c10.png" },
 ];
 
 export const BrandsSlider = () => {
@@ -23,7 +25,7 @@ export const BrandsSlider = () => {
           viewport={{ once: true }}
           className="mb-6 text-center sm:mb-8"
         >
-          <span className="text-sm font-semibold uppercase tracking-wider text-gold">
+          <span className="text-sm font-semibold uppercase tracking-wider text-primary">
             Trusted by Growing Brands
           </span>
           <h2 className="mt-2 font-manrope text-2xl font-bold text-text-dark sm:text-3xl">
@@ -33,38 +35,52 @@ export const BrandsSlider = () => {
 
         {/* Slider Container */}
         <div className="relative overflow-hidden">
+          {/* Gradient Fade Edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg-light to-transparent sm:w-12" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg-light to-transparent sm:w-12" />
+          
           <motion.div
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{
-              duration: 20,
+              duration: 25,
               repeat: Infinity,
               ease: "linear",
             }}
-            className="flex w-max gap-8 sm:gap-12 lg:gap-16"
+            className="flex w-max"
           >
             {/* First Set */}
             {brands.map((brand, i) => (
               <div
                 key={i}
-                className="flex h-20 w-36 shrink-0 items-center justify-center rounded-xl border border-border-light bg-white/80 p-4 shadow-sm backdrop-blur-sm sm:h-24 sm:w-44 lg:h-28 lg:w-52"
+                className="flex h-24 w-40 shrink-0 items-center justify-center border-r border-border-light bg-white px-6 backdrop-blur-sm transition-all hover:bg-gray-50 sm:h-28 sm:w-48 lg:h-32 lg:w-56"
               >
-                <span className="text-3xl sm:text-4xl lg:text-5xl">{brand.logo}</span>
-                <span className="ml-2 text-sm font-medium text-text-gray sm:text-base lg:text-lg">
-                  {brand.name}
-                </span>
+                <img 
+                  src={brand.image} 
+                  alt={brand.name}
+                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-14 lg:h-16"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement.textContent = brand.name;
+                  }}
+                />
               </div>
             ))}
             {/* Duplicate Set for Infinite Scroll */}
             {brands.map((brand, i) => (
               <div
                 key={`dup-${i}`}
-                className="flex h-20 w-36 shrink-0 items-center justify-center rounded-xl border border-border-light bg-white/80 p-4 shadow-sm backdrop-blur-sm sm:h-24 sm:w-44 lg:h-28 lg:w-52"
+                className="flex h-24 w-40 shrink-0 items-center justify-center border-r border-border-light bg-white px-6 backdrop-blur-sm transition-all hover:bg-gray-50 sm:h-28 sm:w-48 lg:h-32 lg:w-56"
               >
-                <span className="text-3xl sm:text-4xl lg:text-5xl">{brand.logo}</span>
-                <span className="ml-2 text-sm font-medium text-text-gray sm:text-base lg:text-lg">
-                  {brand.name}
-                </span>
+                <img 
+                  src={brand.image} 
+                  alt={brand.name}
+                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-14 lg:h-16"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement.textContent = brand.name;
+                  }}
+                />
               </div>
             ))}
           </motion.div>
