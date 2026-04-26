@@ -30,15 +30,15 @@ const serviceCategories = [
       "Meta Ads Strategy & Planning", 
       "Campaign Setup & Structure", 
       "Audience Research & Targeting", 
-      "Creative Design (Ad Creatives)", 
-      "A/B Testing (Split Testing)", 
-      "Pixel Setup & Conversion Tracking", 
+      "Creative Design", 
+      "A/B Testing", 
+      "Pixel Setup & Tracking", 
       "Retargeting Campaigns", 
       "Lead Generation Ads", 
       "E-commerce Ads", 
-      "Budget Management & Scaling", 
-      "Performance Monitoring & Optimization", 
-      "Detailed Reporting & Insights"
+      "Budget Management", 
+      "Performance Monitoring", 
+      "Detailed Reporting"
     ] 
   },
   { 
@@ -62,11 +62,11 @@ const serviceCategories = [
       "Reels & Shorts Editing", 
       "YouTube Video Editing", 
       "Ad Video Editing", 
-      "Corporate & Business Videos", 
-      "Color Correction & Grading", 
-      "Sound Design & Audio Enhancement", 
+      "Corporate Videos", 
+      "Color Correction", 
+      "Sound Design", 
       "Subtitle & Captioning", 
-      "Video Optimization for Platforms", 
+      "Platform Optimization", 
       "Raw Footage Editing", 
       "Bulk Video Editing"
     ] 
@@ -76,22 +76,22 @@ const serviceCategories = [
     icon: "💻", 
     color: "emerald", 
     services: [
-      "Landing Page Design & Development",
+      "Landing Page Design",
       "Business Website (5-7 Pages)",
-      "E-Commerce Store (Shopify/WooCommerce)",
+      "E-Commerce Store",
       "Custom Web Applications",
-      "Responsive Mobile-First Design",
-      "Next.js / React Development",
+      "Responsive Design",
+      "Next.js / React Dev",
       "Tailwind CSS Styling",
-      "Framer Motion Animations",
+      "Framer Motion Animation",
       "Contact Form Integration",
-      "Payment Gateway (Razorpay/Stripe)",
-      "WhatsApp Business API Integration",
+      "Payment Gateway Setup",
+      "WhatsApp API Integration",
       "SEO-Friendly Structure",
-      "Google Analytics Setup",
-      "SSL Certificate Setup",
-      "Website Maintenance & Support",
-      "Website Redesign & Revamp",
+      "Google Analytics",
+      "SSL Certificate",
+      "Website Maintenance",
+      "Website Redesign",
       "Speed Optimization",
       "Source Code Delivery"
     ] 
@@ -105,19 +105,19 @@ export default function ServicesPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
-        className="mb-12 text-center sm:mb-16"
+        className="mb-10 text-center sm:mb-14"
       >
         <Chip variant="gold" className="mb-4 sm:mb-6">What We Offer</Chip>
-        <h1 className="mx-auto mb-4 max-w-4xl font-manrope text-3xl font-bold text-text-dark sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1 className="mx-auto mb-3 max-w-4xl font-manrope text-2xl font-bold text-text-dark sm:text-4xl md:text-5xl lg:text-6xl">
           Comprehensive <span className="text-gradient-primary">Digital Growth</span> Services
         </h1>
-        <p className="mx-auto max-w-2xl text-base text-text-gray sm:text-lg">
-          From strategy to execution—everything you need to scale your brand in one place.
+        <p className="mx-auto max-w-2xl text-sm text-text-gray sm:text-base lg:text-lg">
+          From strategy to execution—everything you need to scale your brand.
         </p>
       </motion.div>
 
       {/* Service Categories */}
-      <div className="space-y-14 sm:space-y-18">
+      <div className="space-y-10 sm:space-y-14">
         {serviceCategories.map((cat, idx) => (
           <motion.section 
             key={cat.title} 
@@ -128,16 +128,21 @@ export default function ServicesPage() {
             transition={{ delay: idx * 0.1 }}
           >
             {/* Category Header */}
-            <div className="mb-6 flex items-center gap-3 sm:mb-8">
-              <span className="text-2xl sm:text-3xl">{cat.icon}</span>
-              <h2 className={`font-manrope text-2xl font-bold sm:text-3xl text-${cat.color}-accent`}>
+            <div className="mb-4 flex items-center gap-2 sm:mb-6">
+              <span className="text-xl sm:text-2xl">{cat.icon}</span>
+              <h2 className="font-manrope text-xl font-bold sm:text-2xl lg:text-3xl" style={{
+                color: cat.color === 'cyan' ? '#2F8FE6' :
+                       cat.color === 'blue' ? '#2A5BDA' :
+                       cat.color === 'purple' ? '#6366f1' :
+                       cat.color === 'pink' ? '#ec4899' : '#4CD964'
+              }}>
                 {cat.title}
               </h2>
-              <span className="ml-auto text-sm text-text-light">{cat.services.length} services</span>
+              <span className="ml-auto text-xs text-text-light sm:text-sm">{cat.services.length} services</span>
             </div>
 
-            {/* Services Grid */}
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4">
+            {/* Services Grid - 2 COLUMNS ON MOBILE */}
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-3 sm:gap-3 lg:gap-4">
               {cat.services.map((service, i) => (
                 <motion.div 
                   key={service} 
@@ -145,25 +150,30 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }} 
                   viewport={{ once: true }} 
                   transition={{ delay: i * 0.02 }}
-                  className={`group rounded-xl border bg-white p-4 shadow-card-soft transition-all hover:shadow-card-hover sm:p-5 ${
-                    cat.color === 'cyan' ? 'border-cyan-accent/20 hover:border-cyan-accent/40' :
-                    cat.color === 'blue' ? 'border-blue-light/20 hover:border-blue-light/40' :
-                    cat.color === 'purple' ? 'border-purple-accent/20 hover:border-purple-accent/40' :
-                    cat.color === 'pink' ? 'border-pink-accent/20 hover:border-pink-accent/40' :
-                    'border-green/20 hover:border-green/40'
-                  }`}
+                  className="group rounded-lg border bg-white p-2.5 shadow-card-soft transition-all hover:shadow-card-hover sm:rounded-xl sm:p-4"
+                  style={{
+                    borderColor: cat.color === 'cyan' ? 'rgba(47, 143, 230, 0.2)' :
+                                 cat.color === 'blue' ? 'rgba(42, 91, 218, 0.2)' :
+                                 cat.color === 'purple' ? 'rgba(99, 102, 241, 0.2)' :
+                                 cat.color === 'pink' ? 'rgba(236, 72, 153, 0.2)' : 'rgba(76, 217, 100, 0.2)'
+                  }}
                 >
-                  <div className="flex items-start gap-3">
-                    <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                      cat.color === 'cyan' ? 'bg-cyan-accent/10 text-cyan-accent' :
-                      cat.color === 'blue' ? 'bg-blue-light/10 text-blue-light' :
-                      cat.color === 'purple' ? 'bg-purple-accent/10 text-purple-accent' :
-                      cat.color === 'pink' ? 'bg-pink-accent/10 text-pink-accent' :
-                      'bg-green/10 text-green'
-                    }`}>
+                  <div className="flex items-start gap-1.5 sm:gap-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold sm:h-6 sm:w-6 sm:text-xs"
+                      style={{
+                        backgroundColor: cat.color === 'cyan' ? 'rgba(47, 143, 230, 0.1)' :
+                                         cat.color === 'blue' ? 'rgba(42, 91, 218, 0.1)' :
+                                         cat.color === 'purple' ? 'rgba(99, 102, 241, 0.1)' :
+                                         cat.color === 'pink' ? 'rgba(236, 72, 153, 0.1)' : 'rgba(76, 217, 100, 0.1)',
+                        color: cat.color === 'cyan' ? '#2F8FE6' :
+                               cat.color === 'blue' ? '#2A5BDA' :
+                               cat.color === 'purple' ? '#6366f1' :
+                               cat.color === 'pink' ? '#ec4899' : '#4CD964'
+                      }}
+                    >
                       {i + 1}
                     </span>
-                    <p className="text-sm font-medium text-text-dark group-hover:text-primary sm:text-base">
+                    <p className="text-xs leading-tight text-text-dark group-hover:text-primary sm:text-sm sm:leading-normal">
                       {service}
                     </p>
                   </div>
@@ -178,32 +188,23 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-14 sm:mt-18"
+          className="mt-10 sm:mt-14"
         >
-          <div className="mb-6 flex items-center gap-3 sm:mb-8">
-            <span className="text-2xl sm:text-3xl">💻</span>
-            <h2 className="font-manrope text-2xl font-bold text-green sm:text-3xl">
+          <div className="mb-4 flex items-center gap-2 sm:mb-6">
+            <span className="text-xl sm:text-2xl">💻</span>
+            <h2 className="font-manrope text-xl font-bold text-green sm:text-2xl lg:text-3xl">
               Web Development Packages
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
             {[
               {
                 name: "Starter",
                 tag: "Landing Page",
                 timeline: "3-5 Days",
                 description: "Perfect for product launches & lead capture",
-                features: [
-                  "1-Page Responsive Design",
-                  "Hero Section + CTA",
-                  "Contact Form with Email",
-                  "WhatsApp Integration",
-                  "Mobile Optimized",
-                  "Free SSL Certificate",
-                  "Basic SEO Setup",
-                  "2 Revisions",
-                ],
+                features: ["1-Page Responsive Design", "Hero Section + CTA", "Contact Form", "WhatsApp Integration", "Mobile Optimized", "SSL Certificate", "Basic SEO", "2 Revisions"],
                 popular: false,
               },
               {
@@ -211,16 +212,7 @@ export default function ServicesPage() {
                 tag: "Professional Website",
                 timeline: "7-10 Days",
                 description: "Complete online presence for service businesses",
-                features: [
-                  "5-7 Pages (Home, About, Services, Contact, Blog)",
-                  "Premium Design (Like this site)",
-                  "Contact Form + Email Automation",
-                  "WhatsApp Business Integration",
-                  "Advanced SEO (Meta, Schema, Sitemap)",
-                  "Google Analytics + Search Console",
-                  "Social Media Integration",
-                  "3 Revisions",
-                ],
+                features: ["5-7 Pages", "Premium Design", "Contact Form + Email", "WhatsApp Business", "Advanced SEO", "Google Analytics", "Social Media Integration", "3 Revisions"],
                 popular: true,
               },
               {
@@ -228,17 +220,7 @@ export default function ServicesPage() {
                 tag: "Online Store",
                 timeline: "30-45 Days",
                 description: "Full-featured store for D2C brands",
-                features: [
-                  "10+ Pages",
-                  "Product Catalog (Unlimited)",
-                  "Shopping Cart + Checkout",
-                  "Razorpay Payment Gateway",
-                  "Order Management System",
-                  "Inventory Tracking",
-                  "Customer Accounts",
-                  "SEO + Speed Optimized",
-                  "5 Revisions",
-                ],
+                features: ["10+ Pages", "Product Catalog", "Cart + Checkout", "Razorpay Payment", "Order Management", "Inventory Tracking", "Customer Accounts", "SEO Optimized", "5 Revisions"],
                 popular: false,
               },
             ].map((pkg, index) => (
@@ -249,52 +231,48 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className={`relative flex flex-col overflow-hidden rounded-2xl border bg-white shadow-card-soft transition-all hover:shadow-card-hover ${
-                  pkg.popular
-                    ? "border-primary/40 ring-2 ring-primary/20"
-                    : "border-border-light"
+                  pkg.popular ? "border-primary/40 ring-2 ring-primary/20" : "border-border-light"
                 }`}
               >
                 {pkg.popular && (
                   <div className="absolute right-0 top-0 z-10">
-                    <div className="rounded-bl-xl bg-gradient-primary px-4 py-1.5 text-xs font-bold text-white shadow-md">
-                      🔥 Most Popular
+                    <div className="rounded-bl-xl bg-gradient-primary px-3 py-1 text-xs font-bold text-white shadow-md">
+                      🔥 Popular
                     </div>
                   </div>
                 )}
 
-                <div className="flex flex-1 flex-col p-6 sm:p-7">
-                  <div className="mb-4 text-center">
-                    <span className="inline-block rounded-full bg-bg-gray px-3 py-1 text-xs font-medium text-text-light">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <div className="mb-3 text-center">
+                    <span className="inline-block rounded-full bg-bg-gray px-2.5 py-0.5 text-xs font-medium text-text-light">
                       {pkg.tag}
                     </span>
-                    <h3 className="mt-3 font-manrope text-2xl font-bold text-text-dark">
+                    <h3 className="mt-2 font-manrope text-xl font-bold text-text-dark sm:text-2xl">
                       {pkg.name}
                     </h3>
                     <p className="mt-1 text-xs font-medium text-primary">
-                      ⏱️ Delivery: {pkg.timeline}
+                      ⏱️ {pkg.timeline}
                     </p>
                   </div>
 
-                  <p className="mb-4 text-center text-sm text-text-gray">
+                  <p className="mb-3 text-center text-xs text-text-gray sm:text-sm">
                     {pkg.description}
                   </p>
 
-                  <ul className="flex-1 space-y-2.5 border-t border-border-light pt-4">
+                  <ul className="flex-1 space-y-1.5 border-t border-border-light pt-3 sm:space-y-2 sm:pt-4">
                     {pkg.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-text-gray">
+                      <li key={i} className="flex items-start gap-1.5 text-xs text-text-gray sm:gap-2 sm:text-sm">
                         <span className="mt-0.5 shrink-0 font-bold text-green">✓</span>
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-6 space-y-2">
+                  <div className="mt-5 space-y-2">
                     <Link
                       href="/contact?service=web-development"
-                      className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:scale-105 ${
-                        pkg.popular
-                          ? "bg-gradient-primary shadow-glow"
-                          : "bg-green hover:bg-green-light"
+                      className={`flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 ${
+                        pkg.popular ? "bg-gradient-primary shadow-glow" : "bg-green hover:bg-green-light"
                       }`}
                     >
                       Get Quote
@@ -318,17 +296,17 @@ export default function ServicesPage() {
         initial={{ opacity: 0 }} 
         whileInView={{ opacity: 1 }} 
         viewport={{ once: true }} 
-        className="mt-16 rounded-3xl border border-primary/30 bg-gradient-to-r from-primary/5 to-teal/10 p-8 text-center sm:mt-20 sm:p-12"
+        className="mt-12 rounded-2xl border border-primary/30 bg-gradient-to-r from-primary/5 to-teal/10 p-6 text-center sm:mt-16 sm:rounded-3xl sm:p-10"
       >
-        <h3 className="font-manrope text-2xl font-bold text-text-dark sm:text-3xl">
+        <h3 className="font-manrope text-xl font-bold text-text-dark sm:text-2xl lg:text-3xl">
           Ready to grow your brand?
         </h3>
-        <p className="mt-3 text-text-gray sm:mt-4">
+        <p className="mt-2 text-sm text-text-gray sm:mt-3 sm:text-base">
           Let's discuss which services fit your goals. No obligation, just strategy.
         </p>
         <Link 
           href="/contact" 
-          className="mt-6 inline-block rounded-full bg-gradient-primary px-8 py-4 text-sm font-bold text-white shadow-glow transition-all hover:scale-105 sm:mt-8"
+          className="mt-5 inline-block rounded-full bg-gradient-primary px-6 py-3 text-sm font-bold text-white shadow-glow transition-all hover:scale-105 sm:mt-6 sm:px-8 sm:py-4"
         >
           Book your free strategy call →
         </Link>

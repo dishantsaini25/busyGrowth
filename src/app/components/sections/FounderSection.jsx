@@ -29,12 +29,12 @@ export const FounderSection = () => {
           viewport={{ once: true }}
           className="mb-8 text-center sm:mb-12"
         >
-          <span className="inline-block rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold">
+          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             Meet the Team
           </span>
           <h2 className="mt-3 font-manrope text-2xl font-bold text-text-dark sm:text-3xl lg:text-4xl">
             The minds behind{" "}
-            <span className="text-gradient-gold">BusyGrowth</span>
+            <span className="text-gradient-primary">BusyGrowth</span>
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-text-gray sm:text-base">
             Hands-on experts who personally manage your growth — no account managers, no fluff
@@ -62,15 +62,15 @@ export const FounderSection = () => {
                     e.currentTarget.src = "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600";
                   }}
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                {/* Darker Gradient Overlay for Better Text Visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 
                 {/* Name & Role Overlay on Image */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                  <h3 className="font-manrope text-xl font-bold text-white sm:text-2xl lg:text-3xl">
+                  <h3 className="font-manrope text-xl font-bold text-white sm:text-2xl lg:text-3xl" style={{ color: '#ffffff', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
                     {founder.name}
                   </h3>
-                  <p className="mt-1 text-xs font-medium text-gold sm:text-sm">
+                  <p className="mt-1 text-xs font-semibold text-amber-400 sm:text-sm" style={{ color: '#fbbf24', textShadow: '0 1px 5px rgba(0,0,0,0.5)' }}>
                     {founder.role}
                   </p>
                 </div>
@@ -78,7 +78,7 @@ export const FounderSection = () => {
 
               {/* Content Section */}
               <div className="p-4 sm:p-5 lg:p-6">
-                {/* Contact Details - Stack on Mobile */}
+                {/* Contact Details */}
                 <div className="flex flex-col gap-3 sm:grid sm:grid-cols-2">
                   {/* Phone Card */}
                   <a
@@ -147,12 +147,12 @@ export const FounderSection = () => {
           transition={{ delay: 0.2 }}
           className="mt-8 text-center sm:mt-10"
         >
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-gold/30 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-3">
-            <span className="text-gold text-sm">✨</span>
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-primary/30 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-3">
+            <span className="text-primary text-sm">✨</span>
             <span className="text-xs font-medium text-text-dark sm:text-sm">
               Direct access to founders — no account managers
             </span>
-            <span className="text-gold text-sm">✨</span>
+            <span className="text-primary text-sm">✨</span>
           </div>
         </motion.div>
       </div>
