@@ -4,7 +4,6 @@ import { FAQ } from "./components/sections/FAQ";
 import { FounderSection } from "./components/sections/FounderSection";
 import { Hero } from "./components/sections/Hero";
 import { Services } from "./components/sections/Services";
-import { WebDevServices } from "./components/sections/WebDevServices";
 
 
 export default function Home() {
@@ -13,7 +12,6 @@ export default function Home() {
       <Hero />
       <Services />
       <BrandsSlider />
-      <WebDevServices />
       <CourseTeaser />
       <FounderSection />
       <FAQ />
