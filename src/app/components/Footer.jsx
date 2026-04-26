@@ -34,8 +34,8 @@ export const Footer = () => {
             
             {/* Mobile-only contact */}
             <div className="flex gap-4 pt-2 sm:hidden">
-              <a href="mailto:hello@busygrowth.studio" className="text-sm text-cyan-accent">
-                📧 hello@busygrowth.studio
+              <a href="mailto:busygrowth@busygrowth.in" className="text-sm text-cyan-accent">
+                📧 busygrowth@busygrowth.in
               </a>
               <a href="https://wa.me/919352757834" className="text-sm text-emerald-accent">
                 📱 WhatsApp
@@ -120,7 +120,7 @@ export const Footer = () => {
 
               {/* Email Card - Cyan Gradient */}
               <a
-                href="mailto:hello@busygrowth.studio"
+                href="mailto:busygrowth@busygrowth.in"
                 className="group flex items-center gap-3 rounded-xl border border-cyan-accent/20 bg-linear-to-br from-cyan-accent/5 to-cyan-accent/10 p-3 transition-all hover:from-cyan-accent/10 hover:to-cyan-accent/20"
               >
                 <div className="rounded-full bg-cyan-accent/20 p-2 text-cyan-accent">
@@ -131,7 +131,7 @@ export const Footer = () => {
                 <div>
                   <p className="text-xs text-text-light">Email us</p>
                   <p className="text-sm font-medium text-text-dark group-hover:text-cyan-accent">
-                    hello@busygrowth.studio
+                    busygrowth@busygrowth.in
                   </p>
                 </div>
               </a>

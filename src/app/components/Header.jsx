@@ -14,8 +14,8 @@ const servicesMenu = [
 const courseLinks = [
   { href: "/course", label: "Full DM (20 Weeks)" },
   { href: "/performance-course", label: "Performance (12 Weeks)" },
-  { href: "/social-media-course", label: "Social Media (12 Weeks)" },
-  { href: "/wordpress-course", label: "WordPress (12 Weeks)" },
+  { href: "/social-media-course", label: "Social Media (8 Weeks)" },
+  { href: "/wordpress-course", label: "WordPress (8 Weeks)" },
 ];
 
 export const Header = () => {
@@ -74,12 +74,13 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-6 text-sm font-medium text-text-gray lg:flex">
             
-            {/* Services Dropdown - Clean */}
-            <div className="relative">
-              <button 
-                onClick={() => { setServicesOpen(!servicesOpen); setCoursesOpen(false); }} 
-                className="flex items-center gap-1 transition hover:text-primary"
-              >
+            {/* Services - HOVER ONLY */}
+            <div 
+              className="relative"
+              onMouseEnter={() => { setServicesOpen(true); setCoursesOpen(false); }}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button className="flex items-center gap-1 transition hover:text-primary">
                 Services 
                 <svg className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -99,7 +100,7 @@ export const Header = () => {
                         <Link
                           key={cat.category}
                           href={cat.href}
-                          onClick={() => setServicesOpen(false)}
+                          onClick={handleLinkClick}
                           className="rounded-lg px-4 py-2.5 text-sm font-medium text-text-gray transition-all hover:bg-primary/5 hover:text-primary"
                         >
                           {cat.category}
@@ -109,7 +110,7 @@ export const Header = () => {
                     <div className="mt-2 border-t border-border-light pt-2">
                       <Link 
                         href="/services" 
-                        onClick={() => setServicesOpen(false)}
+                        onClick={handleLinkClick}
                         className="block rounded-lg px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5"
                       >
                         View All Services →
@@ -120,12 +121,13 @@ export const Header = () => {
               </AnimatePresence>
             </div>
 
-            {/* Courses Dropdown */}
-            <div className="relative">
-              <button 
-                onClick={() => { setCoursesOpen(!coursesOpen); setServicesOpen(false); }} 
-                className="flex items-center gap-1 transition hover:text-primary"
-              >
+            {/* Courses - HOVER ONLY */}
+            <div 
+              className="relative"
+              onMouseEnter={() => { setCoursesOpen(true); setServicesOpen(false); }}
+              onMouseLeave={() => setCoursesOpen(false)}
+            >
+              <button className="flex items-center gap-1 transition hover:text-primary">
                 Courses 
                 <svg className={`h-3 w-3 transition-transform ${coursesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -144,7 +146,7 @@ export const Header = () => {
                       <Link 
                         key={link.href} 
                         href={link.href} 
-                        onClick={() => setCoursesOpen(false)}
+                        onClick={handleLinkClick}
                         className="block rounded-lg px-4 py-2.5 text-sm font-medium text-text-gray transition-all hover:bg-primary/5 hover:text-primary"
                       >
                         {link.label}
@@ -296,8 +298,8 @@ export const Header = () => {
                 </div>
 
                 <div className="mt-6 space-y-2 text-center">
-                  <a href="mailto:hello@busygrowth.studio" className="block text-sm text-text-light hover:text-primary">
-                    📧 hello@busygrowth.studio
+                  <a href="mailto:busygrowth@busygrowth.in" className="block text-sm text-text-light hover:text-primary">
+                    📧 busygrowth@busygrowth.in
                   </a>
                   <a href="https://wa.me/919352757834" className="block text-sm font-medium text-green">
                     📱 +91 93527 57834

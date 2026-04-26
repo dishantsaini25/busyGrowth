@@ -107,10 +107,10 @@ export default function ContactPage() {
                 <p className="text-sm text-text-light">Prefer to reach out directly?</p>
                 <div className="mt-2 flex flex-wrap gap-3">
                   <a 
-                    href="mailto:hello@busygrowth.studio" 
+                    href="mailto:busygrowth@busygrowth.in" 
                     className="text-sm font-medium text-primary hover:underline"
                   >
-                    📧 hello@busygrowth.studio
+                    📧 busygrowth@busygrowth.in
                   </a>
                   <a 
                     href="https://wa.me/919352757834" 

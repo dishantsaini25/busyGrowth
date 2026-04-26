@@ -205,7 +205,7 @@ export default function CoursePage() {
           {/* Social Media */}
           <div className="rounded-2xl border border-pink-accent/30 bg-gradient-to-br from-pink-accent/5 to-pink-50/30 p-5 sm:p-6">
             <h3 className="text-lg font-bold text-pink-accent sm:text-xl">Social Media Mastery</h3>
-            <p className="mt-2 text-sm text-text-gray">12 Weeks • 24+ Sessions • Content Focused</p>
+            <p className="mt-2 text-sm text-text-gray">8 Weeks • 24+ Sessions • Content Focused</p>
             <ul className="mt-4 space-y-2 text-sm">
               <li className="flex items-start gap-2"><span className="text-pink-accent">✓</span> Instagram, YouTube, LinkedIn</li>
               <li className="flex items-start gap-2"><span className="text-pink-accent">✓</span> Content creation & influencer marketing</li>
@@ -217,7 +217,7 @@ export default function CoursePage() {
           {/* WordPress */}
           <div className="rounded-2xl border border-green/30 bg-gradient-to-br from-green/5 to-green-50/30 p-5 sm:p-6">
             <h3 className="text-lg font-bold text-green sm:text-xl">WordPress Website</h3>
-            <p className="mt-2 text-sm text-text-gray">12 Weeks • 20+ Sessions • 3+ Websites</p>
+            <p className="mt-2 text-sm text-text-gray">8 Weeks • 20+ Sessions • 3+ Websites</p>
             <ul className="mt-4 space-y-2 text-sm">
               <li className="flex items-start gap-2"><span className="text-green">✓</span> No coding required</li>
               <li className="flex items-start gap-2"><span className="text-green">✓</span> WooCommerce & client projects</li>
