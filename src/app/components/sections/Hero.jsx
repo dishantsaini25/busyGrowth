@@ -7,7 +7,7 @@ const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, tra
 const cardVariant = { hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } } };
 
 export const Hero = () => (
-  <section className="relative flex flex-col items-center justify-start px-4 pt-18 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
+  <section className="relative flex flex-col items-center justify-start px-4 pt-18 mt-4 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
     
     <motion.div className="w-full max-w-2xl pb-8 lg:w-1/2 lg:pb-0" variants={fadeUp} initial="hidden" animate="visible">
       <Chip variant="gold" className="mb-3 inline-block bg-white/80 backdrop-blur-sm text-xs sm:mb-4 sm:text-sm">

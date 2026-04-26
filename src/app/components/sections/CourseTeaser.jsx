@@ -128,7 +128,7 @@ export const CourseTeaser = () => (
       <span className="text-xl animate-pulse">🎓</span>
     </div>
     <div>
-      <span className="inline-block rounded-full bg-gradient-to-r from-amber to-orange px-3 py-1 text-xs font-bold text-white shadow-sm">
+      <span className="inline-block rounded-full bg-gradient-to-r from-amber to-orange px-3 py-1 text-xs font-bold text-black shadow-sm">
         🔥 NEXT BATCH
       </span>
       <h4 className="mt-1 font-display text-lg font-bold text-text-dark">

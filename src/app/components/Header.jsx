@@ -49,7 +49,7 @@ export const Header = () => {
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-lg shadow-md" : "bg-transparent"
           }`}
       >
-        <div className="mx-auto mb-10 flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
 
 <Link href="/" className="flex items-center">
   <img 
