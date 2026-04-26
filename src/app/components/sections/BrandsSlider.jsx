@@ -8,7 +8,6 @@ const brands = [
   { name: "Brand Four", image: "/images/c4.jpeg" },
   { name: "Brand Five", image: "/images/c5.png" },
   { name: "Brand Six", image: "/images/c6.jpeg" },
-  { name: "Brand Seven", image: "/images/c7.jpeg" },
   { name: "Brand Eight", image: "/images/c8.png" },
   { name: "Brand Nine", image: "/images/c9.jpeg" },
   { name: "Brand Ten", image: "/images/c10.png" },
@@ -58,7 +57,7 @@ export const BrandsSlider = () => {
                 <img 
                   src={brand.image} 
                   alt={brand.name}
-                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-14 lg:h-16"
+                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-26 lg:h-30"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement.textContent = brand.name;
@@ -75,7 +74,7 @@ export const BrandsSlider = () => {
                 <img 
                   src={brand.image} 
                   alt={brand.name}
-                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-14 lg:h-16"
+                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-26 lg:h-30"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement.textContent = brand.name;
