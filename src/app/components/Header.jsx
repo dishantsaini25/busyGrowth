@@ -51,15 +51,17 @@ export const Header = () => {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
 
-    {/* Logo - Transparent */}
 <Link href="/" className="flex items-center">
-  <div className="flex items-center justify-center" style={{ backgroundColor: 'transparent' }}>
-    <img 
-      src="/images/logo1.png" 
-      alt="Logo" 
-      className="h-10 w-auto object-contain sm:h-20 lg:h-18"
-    />
-  </div>
+  <img 
+    src="/images/logo1.png" 
+    alt="Logo" 
+    className="h-12 w-auto object-contain sm:h-12 md:h-14 lg:h-16"
+    style={{ backgroundColor: 'transparent' }}
+    onError={(e) => {
+      e.currentTarget.style.display = 'none';
+      e.currentTarget.parentElement.querySelector('.fallback-logo')?.classList.remove('hidden');
+    }}
+  />
   <span className="fallback-logo hidden bg-gradient-primary bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
     BusyGrowth
   </span>
