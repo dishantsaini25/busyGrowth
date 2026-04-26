@@ -57,7 +57,7 @@ export const BrandsSlider = () => {
                 <img 
                   src={brand.image} 
                   alt={brand.name}
-                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-26 lg:h-30"
+                  className="h-12 w-auto object-fill transition-all hover:scale-110 sm:h-auto lg:h-auto"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement.textContent = brand.name;
@@ -74,7 +74,7 @@ export const BrandsSlider = () => {
                 <img 
                   src={brand.image} 
                   alt={brand.name}
-                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-26 lg:h-30"
+                  className="h-12 w-auto object-contain transition-all hover:scale-110 sm:h-auto lg:h-auto"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement.textContent = brand.name;
