@@ -57,7 +57,7 @@ export const Header = () => {
     <img 
       src="/images/logo1.png" 
       alt="Logo" 
-      className="h-10 w-auto object-contain sm:h-12 lg:h-18"
+      className="h-10 w-auto object-contain sm:h-16 lg:h-18"
     />
   </div>
   <span className="fallback-logo hidden bg-gradient-primary bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-xl lg:text-2xl">
