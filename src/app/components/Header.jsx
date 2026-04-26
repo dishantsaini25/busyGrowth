@@ -14,6 +14,8 @@ const servicesMenu = [
 const courseLinks = [
   { href: "/course", label: "Full DM (20 Weeks)" },
   { href: "/performance-course", label: "Performance (12 Weeks)" },
+  { href: "/social-media-course", label: "Social Media (12 Weeks)" },
+  { href: "/wordpress-course", label: "WordPress (12 Weeks)" },
 ];
 
 export const Header = () => {

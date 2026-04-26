@@ -46,7 +46,7 @@ const milestones = [
     projects: "7", 
     desc: "Paid marketing, conversion tracking. Master Meta and Google Ads for profitable campaigns.", 
     topics: ["Meta Ads structure", "Pixel & CAPI", "Google Search/Display", "Performance Max"], 
-    color: "gold",
+    color: "blue",
     image: "https://as2.ftcdn.net/v2/jpg/11/81/37/03/1000_F_1181370320_3LSvkB3RuaFc5dcgD2mhf7EVQmN8KxYH.jpg"
   },
   { 
@@ -66,7 +66,7 @@ const colors = {
   cyan: "border-cyan-accent/30 bg-cyan-accent/5", 
   emerald: "border-emerald-accent/30 bg-emerald-accent/5", 
   purple: "border-purple-accent/30 bg-purple-accent/5", 
-  gold: "border-gold/30 bg-gold/5", 
+  blue: "border-primary/30 bg-primary/5", 
   pink: "border-pink-accent/30 bg-pink-accent/5" 
 };
 
@@ -79,17 +79,17 @@ export default function CoursePage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-center">
         <Chip variant="gold" className="mb-4 sm:mb-6">20+ Weeks Mentorship</Chip>
         <h1 className="mx-auto mb-4 max-w-4xl font-manrope text-3xl font-bold text-text-dark sm:text-4xl md:text-5xl lg:text-6xl">
-          BusyGrowth <span className="text-gradient-gold">Digital Marketing</span> Course
+          BusyGrowth <span className="text-gradient-primary">Digital Marketing</span> Course
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-base text-text-gray sm:text-lg">
           Learn the exact playbooks we run on client accounts. Live sessions, real projects.
         </p>
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-          <Link href="/contact" className="rounded-full bg-linear-to-r from-gold to-gold-dim px-6 py-2.5 text-sm font-bold text-white shadow-glow-gold hover:scale-105 transition-all sm:px-8 sm:py-3">
+          <Link href="/contact" className="rounded-full bg-gradient-primary px-6 py-2.5 text-sm font-bold text-white shadow-glow hover:scale-105 transition-all sm:px-8 sm:py-3">
             Enroll for next batch →
           </Link>
-          <Link href="/performance-course" className="rounded-full border border-border-gray bg-white px-6 py-2.5 text-sm font-medium text-text-gray shadow-sm hover:border-gold/50 transition-all sm:px-8 sm:py-3">
-            Compare with Performance Marketing
+          <Link href="/performance-course" className="rounded-full border border-border-gray bg-white px-6 py-2.5 text-sm font-medium text-text-gray shadow-sm hover:border-primary/50 hover:text-primary transition-all sm:px-8 sm:py-3">
+            Compare Courses
           </Link>
         </div>
       </motion.div>
@@ -98,7 +98,7 @@ export default function CoursePage() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
         {[{ v: "20+", l: "Weeks" }, { v: "47+", l: "Sessions" }, { v: "20+", l: "Projects" }, { v: "Lifetime", l: "Access" }].map((s, i) => (
           <div key={i} className="rounded-xl border border-border-light bg-white p-3 text-center shadow-card-soft sm:p-4">
-            <p className="text-xl font-bold text-gold sm:text-2xl">{s.v}</p>
+            <p className="text-xl font-bold text-primary sm:text-2xl">{s.v}</p>
             <p className="text-[10px] text-text-light sm:text-xs">{s.l}</p>
           </div>
         ))}
@@ -130,35 +130,25 @@ export default function CoursePage() {
           ))}
         </motion.div>
 
-        {/* Right Content - Milestone Details with Image */}
+        {/* Right Content - Milestone Details */}
         <motion.div key={active} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-2">
           <div className="overflow-hidden rounded-2xl border border-border-light bg-white shadow-card-soft sm:rounded-3xl">
-            {/* Milestone Image - Fixed Height */}
             <div className="relative h-36 w-full overflow-hidden sm:h-44 lg:h-48">
-              <img 
-                src={milestones[active].image} 
-                alt={milestones[active].title}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
+              <img src={milestones[active].image} alt={milestones[active].title} className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-3 left-4">
-                <span className="inline-block rounded-full bg-gold/90 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
+                <span className="inline-block rounded-full bg-primary/90 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
                   {milestones[active].id}
                 </span>
               </div>
             </div>
             
-            {/* Content */}
             <div className="p-5 sm:p-6 lg:p-8">
-              <span className="text-sm font-semibold uppercase tracking-wider text-gold">Milestone {active+1}</span>
-              <h2 className="mt-2 font-manrope text-xl font-bold text-text-dark sm:text-2xl lg:text-3xl">
-                {milestones[active].title}
-              </h2>
+              <span className="text-sm font-semibold uppercase tracking-wider text-primary">Milestone {active+1}</span>
+              <h2 className="mt-2 font-manrope text-xl font-bold text-text-dark sm:text-2xl lg:text-3xl">{milestones[active].title}</h2>
               <div className="mt-2 flex flex-wrap gap-3 text-sm text-text-light">
-                <span>{milestones[active].weeks}</span>
-                <span>•</span>
-                <span>{milestones[active].sessions} Live Sessions</span>
-                <span>•</span>
+                <span>{milestones[active].weeks}</span><span>•</span>
+                <span>{milestones[active].sessions} Live Sessions</span><span>•</span>
                 <span>{milestones[active].projects} Projects</span>
               </div>
               <p className="my-4 text-text-gray sm:my-5">{milestones[active].desc}</p>
@@ -167,14 +157,14 @@ export default function CoursePage() {
               <ul className="grid gap-2 sm:grid-cols-2 sm:gap-3">
                 {milestones[active].topics.map((t, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                     <span className="text-sm text-text-gray">{t}</span>
                   </li>
                 ))}
               </ul>
               
               <div className="mt-5 border-t border-border-light pt-4">
-                <Link href="/contact" className="inline-flex items-center gap-1 text-sm font-medium text-gold hover:underline">
+                <Link href="/contact" className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
                   Request detailed curriculum →
                 </Link>
               </div>
@@ -183,30 +173,59 @@ export default function CoursePage() {
         </motion.div>
       </div>
 
-      {/* Comparison Section */}
+      {/* Comparison Section - All 4 Courses */}
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-12 rounded-2xl border border-border-light bg-white p-5 shadow-card-soft sm:mt-16 sm:rounded-3xl sm:p-8">
         <h2 className="font-manrope text-xl font-bold text-text-dark text-center sm:text-2xl">Which Course is Right for You?</h2>
         <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-6">
-          <div className="rounded-2xl border border-gold/30 bg-linear-to-br from-gold/5 to-amber-50/30 p-5 sm:p-6">
-            <h3 className="text-lg font-bold text-gold sm:text-xl">Full Digital Marketing</h3>
+          
+          {/* Full DM */}
+          <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 to-blue-50/30 p-5 sm:p-6">
+            <h3 className="text-lg font-bold text-primary sm:text-xl">Full Digital Marketing</h3>
             <p className="mt-2 text-sm text-text-gray">20 Weeks • 47+ Sessions • All 5 Milestones</p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li className="flex items-start gap-2"><span className="text-gold">✓</span> SEO, Social, Content, Ads, Automation</li>
-              <li className="flex items-start gap-2"><span className="text-gold">✓</span> Complete digital marketing stack</li>
-              <li className="flex items-start gap-2"><span className="text-gold">✓</span> Best for beginners & career switchers</li>
+              <li className="flex items-start gap-2"><span className="text-primary">✓</span> SEO, Social, Content, Ads, Automation</li>
+              <li className="flex items-start gap-2"><span className="text-primary">✓</span> Complete digital marketing stack</li>
+              <li className="flex items-start gap-2"><span className="text-primary">✓</span> Best for beginners & career switchers</li>
             </ul>
-            <Link href="/contact" className="mt-5 inline-block text-sm font-medium text-gold hover:underline">Enroll Now →</Link>
+            <Link href="/contact" className="mt-5 inline-block text-sm font-medium text-primary hover:underline">Enroll Now →</Link>
           </div>
-          <div className="rounded-2xl border border-cyan-accent/30 bg-linear-to-br from-cyan-accent/5 to-cyan-50/30 p-5 sm:p-6">
-            <h3 className="text-lg font-bold text-cyan-accent sm:text-xl">Performance Marketing</h3>
+
+          {/* Performance Marketing */}
+          <div className="rounded-2xl border border-blue-light/30 bg-gradient-to-br from-blue-light/5 to-blue-50/30 p-5 sm:p-6">
+            <h3 className="text-lg font-bold text-blue-light sm:text-xl">Performance Marketing</h3>
             <p className="mt-2 text-sm text-text-gray">12 Weeks • 24+ Sessions • Ads Focused</p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li className="flex items-start gap-2"><span className="text-cyan-accent">✓</span> Meta Ads + Google Ads deep dive</li>
-              <li className="flex items-start gap-2"><span className="text-cyan-accent">✓</span> Campaign optimization & scaling</li>
-              <li className="flex items-start gap-2"><span className="text-cyan-accent">✓</span> Best for media buyers & specialists</li>
+              <li className="flex items-start gap-2"><span className="text-blue-light">✓</span> Meta Ads + Google Ads deep dive</li>
+              <li className="flex items-start gap-2"><span className="text-blue-light">✓</span> Campaign optimization & scaling</li>
+              <li className="flex items-start gap-2"><span className="text-blue-light">✓</span> Best for media buyers & specialists</li>
             </ul>
-            <Link href="/performance-course" className="mt-5 inline-block text-sm font-medium text-cyan-accent hover:underline">Learn more →</Link>
+            <Link href="/performance-course" className="mt-5 inline-block text-sm font-medium text-blue-light hover:underline">Learn more →</Link>
           </div>
+
+          {/* Social Media */}
+          <div className="rounded-2xl border border-pink-accent/30 bg-gradient-to-br from-pink-accent/5 to-pink-50/30 p-5 sm:p-6">
+            <h3 className="text-lg font-bold text-pink-accent sm:text-xl">Social Media Mastery</h3>
+            <p className="mt-2 text-sm text-text-gray">12 Weeks • 24+ Sessions • Content Focused</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li className="flex items-start gap-2"><span className="text-pink-accent">✓</span> Instagram, YouTube, LinkedIn</li>
+              <li className="flex items-start gap-2"><span className="text-pink-accent">✓</span> Content creation & influencer marketing</li>
+              <li className="flex items-start gap-2"><span className="text-pink-accent">✓</span> Best for creators & social managers</li>
+            </ul>
+            <Link href="/social-media-course" className="mt-5 inline-block text-sm font-medium text-pink-accent hover:underline">Learn more →</Link>
+          </div>
+
+          {/* WordPress */}
+          <div className="rounded-2xl border border-green/30 bg-gradient-to-br from-green/5 to-green-50/30 p-5 sm:p-6">
+            <h3 className="text-lg font-bold text-green sm:text-xl">WordPress Website</h3>
+            <p className="mt-2 text-sm text-text-gray">12 Weeks • 20+ Sessions • 3+ Websites</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li className="flex items-start gap-2"><span className="text-green">✓</span> No coding required</li>
+              <li className="flex items-start gap-2"><span className="text-green">✓</span> WooCommerce & client projects</li>
+              <li className="flex items-start gap-2"><span className="text-green">✓</span> Best for freelancers & business owners</li>
+            </ul>
+            <Link href="/wordpress-course" className="mt-5 inline-block text-sm font-medium text-green hover:underline">Learn more →</Link>
+          </div>
+
         </div>
       </motion.div>
     </div>
