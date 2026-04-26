@@ -8,7 +8,7 @@ const milestoneCards = [
     title: "Foundation & AI",
     subtitle: "Websites, funnels & AI mindset",
     color: "cyan",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
     topics: ["Digital ecosystem", "ICP & personas", "WordPress", "AI tools"],
   },
   {
@@ -16,7 +16,7 @@ const milestoneCards = [
     title: "SEO & AEO",
     subtitle: "Search dominance in AI era",
     color: "emerald",
-    image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=400&h=300&fit=crop",
+    image: "/images/seo.jpg",
     topics: ["Keyword strategy", "Technical SEO", "AEO & SGE", "GSC & GA4"],
   },
   {
@@ -24,7 +24,7 @@ const milestoneCards = [
     title: "Social & Content",
     subtitle: "Platform-led growth",
     color: "purple",
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=300&fit=crop",
+    image: "/images/social.jpg",
     topics: ["Algorithms", "Short-form video", "Copywriting", "Influencer"],
   },
   {
@@ -32,7 +32,7 @@ const milestoneCards = [
     title: "Meta & Google Ads",
     subtitle: "Performance marketing",
     color: "orange",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
     topics: ["Meta Ads", "Google Search", "Pixel & CAPI", "Performance Max"],
   },
   {
@@ -40,7 +40,7 @@ const milestoneCards = [
     title: "Automation & AI",
     subtitle: "n8n, email & WhatsApp flows",
     color: "pink",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+    image: "images/ai.jpg",
     topics: ["n8n workflows", "AI agents", "Email automation", "WhatsApp API"],
   },
 ];
@@ -96,7 +96,7 @@ export const CourseTeaser = () => (
         <div className="mt-8 flex flex-wrap gap-3">
           <Link 
             href="/course" 
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-l from-cyan to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-glow-cyan transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-l from-cyan to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105"
           >
             See full curriculum
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@ export const CourseTeaser = () => (
           </Link>
         </div>
 
-        {/* Next Batch CTA - Now on Left Side */}
+        {/* Next Batch CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,42 +122,42 @@ export const CourseTeaser = () => (
           transition={{ delay: 0.2 }}
           className="mt-8"
         >
-     <div className="rounded-2xl border-2 border-dashed border-amber/40 bg-gradient-to-br from-amber/20 via-orange/15 to-pink/20 p-5 shadow-lg">
-  <div className="flex items-center gap-3">
-    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-amber via-orange to-pink text-white shadow-glow-amber">
-      <span className="text-xl animate-pulse">🎓</span>
-    </div>
-    <div>
-      <span className="inline-block rounded-full bg-gradient-to-r from-amber to-orange px-3 py-1 text-xs font-bold text-black shadow-sm">
-        🔥 NEXT BATCH
-      </span>
-      <h4 className="mt-1 font-display text-lg font-bold text-text-dark">
-        Limited Seats Available
-      </h4>
-    </div>
-  </div>
-  <p className="mt-3 text-sm font-medium text-text-dark">
-    Join <span className="font-bold text-amber">500+ students</span> who transformed their careers. Next batch starts soon!
-  </p>
-  <Link 
-    href="/contact" 
-    className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber via-orange to-pink px-6 py-3 text-sm font-bold text-black shadow-glow-amber transition-all hover:scale-[1.02] hover:shadow-glow-pink sm:w-auto"
-  >
-    Reserve your seat
-    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
-  </Link>
-</div>
+          <div className="rounded-2xl border-2 border-dashed border-amber/40 bg-gradient-to-br from-amber/20 via-orange/15 to-pink/20 p-5 shadow-lg">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-amber via-orange to-pink text-white shadow-glow-amber">
+                <span className="text-xl animate-pulse">🎓</span>
+              </div>
+              <div>
+                <span className="inline-block rounded-full bg-gradient-to-r from-amber to-orange px-3 py-1 text-xs font-bold text-white shadow-sm">
+                  🔥 NEXT BATCH
+                </span>
+                <h4 className="mt-1 font-display text-lg font-bold text-text-dark">
+                  Limited Seats Available
+                </h4>
+              </div>
+            </div>
+            <p className="mt-3 text-sm font-medium text-text-dark">
+              Join <span className="font-bold text-amber">500+ students</span> who transformed their careers. Next batch starts soon!
+            </p>
+            <Link 
+              href="/contact" 
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber via-orange to-pink px-6 py-3 text-sm font-bold text-white shadow-glow-amber transition-all hover:scale-[1.02] sm:w-auto"
+            >
+              Reserve your seat
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </motion.div>
       </motion.div>
 
-      {/* Right Column - Milestone Cards Grid */}
+      {/* Right Column - 2 COLUMNS ON MOBILE, Bigger Cards */}
       <motion.div 
         initial={{ opacity: 0, x: 20 }} 
         whileInView={{ opacity: 1, x: 0 }} 
         viewport={{ once: true }} 
-        className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+        className="grid grid-cols-2 gap-3 sm:gap-4"
       >
         {milestoneCards.map((card, index) => (
           <motion.div
@@ -175,8 +175,8 @@ export const CourseTeaser = () => (
               'border-pink/30'
             }`}
           >
-            {/* Image Section */}
-            <div className="relative h-32 w-full overflow-hidden">
+            {/* Image Section - Bigger */}
+            <div className="relative h-36 w-full overflow-hidden sm:h-40 lg:h-44">
               <img 
                 src={card.image} 
                 alt={card.title}
@@ -203,19 +203,23 @@ export const CourseTeaser = () => (
             </div>
 
             {/* Content Section */}
-            <div className="p-4">
-              <h3 className="font-display text-base font-semibold text-text-primary">{card.title}</h3>
-              <p className="text-xs text-text-tertiary">{card.subtitle}</p>
+            <div className="p-3 sm:p-4">
+              <h3 className="font-display text-sm font-semibold text-text-primary sm:text-base">
+                {card.title}
+              </h3>
+              <p className="text-[10px] text-text-tertiary sm:text-xs">
+                {card.subtitle}
+              </p>
               
               {/* Topics */}
-              <div className="mt-3 flex flex-wrap gap-1">
+              <div className="mt-2 flex flex-wrap gap-1 sm:mt-3">
                 {card.topics.slice(0, 2).map((topic, i) => (
-                  <span key={i} className="rounded-full bg-bg-tertiary px-2 py-0.5 text-[10px] text-text-tertiary">
+                  <span key={i} className="rounded-full bg-bg-tertiary px-1.5 py-0.5 text-[9px] text-text-tertiary sm:px-2 sm:text-[10px]">
                     {topic}
                   </span>
                 ))}
                 {card.topics.length > 2 && (
-                  <span className="rounded-full bg-bg-tertiary px-2 py-0.5 text-[10px] text-text-tertiary">
+                  <span className="rounded-full bg-bg-tertiary px-1.5 py-0.5 text-[9px] text-text-tertiary sm:px-2 sm:text-[10px]">
                     +{card.topics.length - 2}
                   </span>
                 )}
