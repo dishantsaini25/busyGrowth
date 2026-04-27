@@ -25,7 +25,6 @@ export const Footer = () => {
               <span className="bg-linear-to-r from-gold via-gold/90 to-gold-dim bg-clip-text text-2xl font-bold text-transparent">
                 BusyGrowth
               </span>
-              <span className="ml-1 text-xs font-medium uppercase text-text-light">Studio</span>
             </Link>
             <p className="text-sm leading-relaxed text-text-gray">
               Jaipur-based performance studio for founders & creators. 
@@ -183,7 +182,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-between gap-3 border-t border-border-light pt-6 text-center md:flex-row md:text-left">
           <p className="text-xs text-text-light md:text-sm">
-            © {currentYear} BusyGrowth Studio. All rights reserved.
+            © {currentYear} BusyGrowth. All rights reserved.
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:gap-6 md:text-sm">

@@ -141,7 +141,7 @@ export const CourseTeaser = () => (
             </p>
             <Link 
               href="/contact" 
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber via-orange to-pink px-6 py-3 text-sm font-bold text-white shadow-glow-amber transition-all hover:scale-[1.02] sm:w-auto"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber via-orange to-pink px-6 py-3 text-sm font-bold text-black shadow-glow-amber transition-all hover:scale-[1.02] sm:w-auto"
             >
               Reserve your seat
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
