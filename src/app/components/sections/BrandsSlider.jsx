@@ -8,9 +8,12 @@ const brands = [
   { name: "Brand Four", image: "/images/c4.jpeg" },
   { name: "Brand Five", image: "/images/c5.png" },
   { name: "Brand Six", image: "/images/c6.jpeg" },
+  { name: "Brand Seven", image: "/images/c7.jpeg" },
   { name: "Brand Eight", image: "/images/c8.png" },
   { name: "Brand Nine", image: "/images/c9.jpeg" },
   { name: "Brand Ten", image: "/images/c10.png" },
+  { name: "Brand Eleven", image: "/images/c11.jpeg" },
+  { name: "Brand Twelve", image: "/images/c12.jpeg" },
 ];
 
 export const BrandsSlider = () => {
