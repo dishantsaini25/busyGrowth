@@ -20,7 +20,7 @@ export const FAQ = () => {
           <h2 className="mt-4 font-manrope text-4xl font-bold text-text-dark">Straight answers.<br /><span className="mt-4 font-manrope text-4xl font-bold text-text-dark">Zero fluff.</span></h2>
           <div className="mt-8 rounded-2xl border border-gold/20 bg-gold/5 p-6">
             <h3 className="text-lg font-semibold text-text-dark">Still have questions?</h3>
-            <Link href="/contact" className="mt-4 inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-semibold text-white shadow-glow-gold">Book strategy call →</Link>
+            <Link href="/contact" className="mt-4 inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-semibold text-black shadow-glow-gold">Book strategy call →</Link>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-3">
