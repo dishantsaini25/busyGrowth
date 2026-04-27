@@ -8,33 +8,36 @@ const cardVariant = { hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0
 
 export const Hero = () => (
   <section className="relative flex flex-col items-center justify-start px-4 pt-18 mt-4 sm:px-6 lg:min-h-screen lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-8 lg:pt-0">
-    
+
     <motion.div className="w-full max-w-2xl pb-8 lg:w-1/2 lg:pb-0" variants={fadeUp} initial="hidden" animate="visible">
       <Chip variant="gold" className="mb-3 inline-block bg-white/80 backdrop-blur-sm text-xs sm:mb-4 sm:text-sm">
         ⚡ Jaipur-based performance studio
       </Chip>
-      
+
       <h1 className="mb-3 font-manrope text-2xl font-bold leading-tight text-text-dark sm:mb-4 sm:text-3xl lg:text-4xl xl:text-5xl">
         We build digital experiences that{" "}
         <span className="text-gradient-gold">print leads on autopilot</span>
         <br />
         <span className="text-cyan-accent">using reels, ads & automation.</span>
       </h1>
-      
+
       <p className="mb-4 text-sm text-text-gray sm:mb-6 sm:text-base">
-        A small, hands-on team that actually runs the ads, edits the reels, and builds the systems. 
+        A small, hands-on team that actually runs the ads, edits the reels, and builds the systems.
         No agency fluff — just real growth for founders and creators.
       </p>
-      
+
       <div className="flex flex-wrap gap-2 sm:gap-4">
-        <Link href="/contact" className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-4 py-2 text-xs font-bold text-black shadow-glow-gold transition-all hover:scale-105 sm:px-6 sm:py-2.5 sm:text-sm">
+        <Link
+          href="/contact"
+          className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-4 py-2 text-xs font-bold text-white !text-white shadow-glow-gold transition-all hover:scale-105 hover:!text-white sm:px-6 sm:py-2.5 sm:text-sm"
+        >
           Get a free growth plan →
         </Link>
         <Link href="/services" className="rounded-full border border-border-gray bg-white/80 px-4 py-2 text-xs font-medium text-text-gray shadow-sm transition-all hover:border-gold/50 hover:text-gold sm:px-6 sm:py-2.5 sm:text-sm">
           View services
         </Link>
       </div>
-      
+
       <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-6 sm:gap-2">
         <Chip variant="cyan" className="text-[10px] sm:text-xs">🎬 Reels & short-form</Chip>
         <Chip variant="purple" className="text-[10px] sm:text-xs">📊 Meta & Google Ads</Chip>
