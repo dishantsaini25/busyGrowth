@@ -27,7 +27,7 @@ export const Hero = () => (
       </p>
       
       <div className="flex flex-wrap gap-2 sm:gap-4">
-        <Link href="/contact" className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-4 py-2 text-xs font-bold text-white shadow-glow-gold transition-all hover:scale-105 sm:px-6 sm:py-2.5 sm:text-sm">
+        <Link href="/contact" className="rounded-full bg-gradient-to-r from-gold to-gold-dim px-4 py-2 text-xs font-bold text-black shadow-glow-gold transition-all hover:scale-105 sm:px-6 sm:py-2.5 sm:text-sm">
           Get a free growth plan →
         </Link>
         <Link href="/services" className="rounded-full border border-border-gray bg-white/80 px-4 py-2 text-xs font-medium text-text-gray shadow-sm transition-all hover:border-gold/50 hover:text-gold sm:px-6 sm:py-2.5 sm:text-sm">
