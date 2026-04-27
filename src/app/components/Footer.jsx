@@ -187,11 +187,11 @@ export const Footer = () => {
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:gap-6 md:text-sm">
-            <Link href="/privacy" className="text-text-light transition hover:text-gold">Privacy</Link>
+            <span href="/privacy" className="text-text-light transition hover:text-gold">Privacy</span>
             <span className="text-border-light">|</span>
-            <Link href="/terms" className="text-text-light transition hover:text-gold">Terms</Link>
+            <span href="/terms" className="text-text-light transition hover:text-gold">Terms</span>
             <span className="text-border-light">|</span>
-            <Link href="/refund" className="text-text-light transition hover:text-gold">Refund</Link>
+            <span href="/refund" className="text-text-light transition hover:text-gold">Refund</span>
           </div>
 
           <p className="text-xs text-text-light md:text-sm">
